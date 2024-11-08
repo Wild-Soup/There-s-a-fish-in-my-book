@@ -5,13 +5,20 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 1
+    path: Assets/Tristan/tristans scene/tristans scene.unity
+    guid: faecdd7058b03104e89331e23777c9c4
   - enabled: 0
     path: Assets/Scenes/Main.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 9f3ed8c91155a01419703373fdcb6e13,
+      type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 21ed88a90bcc2d44caaa4270f8e32315,
       type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 3e634363b387c3f4893e166eee6746cc,
+      type: 2}
+    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 076d124828a79c548a1ee9664bf7d28c,
       type: 2}
