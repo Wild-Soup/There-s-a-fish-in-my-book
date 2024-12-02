@@ -647,16 +647,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 175e25847c1f8bd4d9eef13e5e7757dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  day: 0
-  time: 0
-  nrBooks: 0
-  nrRealBooks: 0
+  day: 1
+  time: 60
+  nrBooks: 1
+  nrRealBooks: 1
   nrCorrectBooks: 0
   nrIncorrectBooks: 0
-  titles: []
-  authorName: []
-  genres: []
-  colors: []
+  generatedBooks: []
+  correctBooks: []
+  titles:
+  - How to kill Tristan
+  authorName:
+  - Henning
+  genres:
+  - {fileID: 21300000, guid: 02070be342c83ad4cb55b128368b847a, type: 3}
+  colors:
+  - {r: 1, g: 0, b: 0, a: 0}
   possibleEvents:
     m_PersistentCalls:
       m_Calls: []
