@@ -649,6 +649,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   day: 1
   time: 60
+  days:
+  - minBookCount: 5
+    maxBookCount: 10
+    minCorrectCount: 2
+    maxCorrectCount: 4
+    minTrapCount: 0
+    maxTrapCount: 1
+    minClones: 1
+    maxClones: 2
   nrBooks: 1
   nrRealBooks: 1
   nrCorrectBooks: 0
@@ -675,7 +684,7 @@ Transform:
   m_GameObject: {fileID: 2040411400}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3100405, y: -0.044654846, z: 1.4634771}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
