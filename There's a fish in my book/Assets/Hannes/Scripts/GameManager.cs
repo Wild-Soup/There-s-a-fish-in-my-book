@@ -64,12 +64,14 @@ public class GameManager : MonoBehaviour
 
     public void SetBooks()
     {
-        generatedBooks = new TempBook[Random.Range(days[day].minBookCount, days[day].maxBookCount + 1)];
+        generatedBooks = new TempBook[Random.Range(days[day - 1].minBookCount, days[day - 1].maxBookCount)];
 
         for (int i = 0; i < generatedBooks.Length; i++)
         {
             generatedBooks[i] = new TempBook(titles[Random.Range(0, titles.Length)], authorName[Random.Range(0, authorName.Length)], genres[Random.Range(0, genres.Length)], colors[Random.Range(0, colors.Length)]);
         }
+
+        correctBooks = new TempBook[Random.Range(days[day - 1].minCorrectCount, days[day - 1].maxCorrectCount)];
     }
 
     public void ResetGame()
