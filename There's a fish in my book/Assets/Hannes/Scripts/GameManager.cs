@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
@@ -13,6 +14,7 @@ public class GameManager : MonoBehaviour
     // time and game progression
     [SerializeField] private int day = 1;
     [SerializeField] private float time = 0;
+    [SerializeField] private Day[] days;
     // amount of books the game will generate
     [SerializeField] private int nrBooks = 1;
     [SerializeField] private int nrRealBooks = 1;
@@ -62,7 +64,14 @@ public class GameManager : MonoBehaviour
 
     public void SetBooks()
     {
+        generatedBooks = new TempBook[Random.Range(days[day - 1].minBookCount, days[day - 1].maxBookCount)];
 
+        for (int i = 0; i < generatedBooks.Length; i++)
+        {
+            generatedBooks[i] = new TempBook(titles[Random.Range(0, titles.Length)], authorName[Random.Range(0, authorName.Length)], genres[Random.Range(0, genres.Length)], colors[Random.Range(0, colors.Length)]);
+        }
+
+        correctBooks = new TempBook[Random.Range(days[day - 1].minCorrectCount, days[day - 1].maxCorrectCount)];
     }
 
     public void ResetGame()
@@ -104,5 +113,20 @@ public class GameManager : MonoBehaviour
             this.color = color;
             events = ev;
         }
+    }
+    [System.Serializable]
+    public struct Day
+    {
+        public int minBookCount;
+        public int maxBookCount;
+
+        public int minCorrectCount;
+        public int maxCorrectCount;
+
+        public int minTrapCount;
+        public int maxTrapCount;
+
+        public int minClones;
+        public int maxClones;
     }
 }

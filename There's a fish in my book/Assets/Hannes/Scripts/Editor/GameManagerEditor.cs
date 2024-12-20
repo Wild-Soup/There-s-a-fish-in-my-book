@@ -20,8 +20,10 @@ public class GameManagerEditor : Editor
     private SerializedProperty gameOverPanel;
     private SerializedProperty generatedBooks;
     private SerializedProperty correctBooks;
+    private SerializedProperty days;
 
     private bool timeDropDown;
+    private bool dayInformation;
 
     private bool bookInfoDropDown;
 
@@ -33,6 +35,7 @@ public class GameManagerEditor : Editor
     private void OnEnable()
     {
         day = serializedObject.FindProperty("day");
+        days = serializedObject.FindProperty("days");
         time = serializedObject.FindProperty("time");
         nrBooks = serializedObject.FindProperty("nrBooks");
         nrRealBooks = serializedObject.FindProperty("nrRealBooks");
@@ -72,6 +75,8 @@ public class GameManagerEditor : Editor
 
 
             EditorGUILayout.HelpBox($"Time left: h{hours} m{minutes} s{seconds}, ms{milliseconds}", MessageType.Info);
+
+            EditorGUILayout.PropertyField(days, new GUIContent("Days", "Game information for every in game day"));
 
             EditorGUI.indentLevel--;
         }
