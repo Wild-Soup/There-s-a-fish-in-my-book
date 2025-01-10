@@ -22,7 +22,7 @@ public class Book : MonoBehaviour
     [SerializeField] private Material color;
     [SerializeField] UnityEvent onOpenEvents;
 
-    private Book(TextMeshPro nTitle, TextMeshPro nAuthor, Sprite nGenre, Material nColor, UnityEvent newEvents = null)
+    public Book(TextMeshPro nTitle, TextMeshPro nAuthor, Sprite nGenre, Material nColor, UnityEvent newEvents = null)
     {
         title = nTitle;
         author = nAuthor;
