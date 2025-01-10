@@ -87,15 +87,9 @@ public class GameManagerEditor : Editor
         {
             EditorGUI.indentLevel++;
 
-            EditorGUILayout.PropertyField(nrBooks, new GUIContent("Nr books", "The number of books that will generate this day"));
+            EditorGUILayout.PropertyField(generatedBooks, new GUIContent("Generated Books", "the books that have been generated"));
 
-            if (nrBooks.intValue < 1)
-                EditorGUILayout.HelpBox("if the number of books is below one the game will be impossible", MessageType.Error);
-
-            EditorGUILayout.PropertyField(nrRealBooks, new GUIContent("Nr Real Books", "The number of books that are generated that will be collected"));
-
-            if (nrRealBooks.intValue < 1)
-                EditorGUILayout.HelpBox("if the number of real books is below one the game will be impossible", MessageType.Error);
+            EditorGUILayout.PropertyField(correctBooks, new GUIContent("Correct Books", "the books that have been selected to be collected"));
 
             EditorGUI.indentLevel--;
         }
@@ -115,10 +109,6 @@ public class GameManagerEditor : Editor
 
             if (nrIncorrectBooks.intValue < 0)
                 EditorGUILayout.HelpBox("if this value is less than 0 something is wrong", MessageType.Warning);
-
-            EditorGUILayout.PropertyField(generatedBooks, new GUIContent("Generated Books", "the books that have been generated"));
-
-            EditorGUILayout.PropertyField(correctBooks, new GUIContent("Correct Books", "the books that have been selected to be collected"));
 
             EditorGUI.indentLevel--;
         }
