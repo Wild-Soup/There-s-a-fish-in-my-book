@@ -36,6 +36,7 @@ public class Book : MonoBehaviour
     /// </summary>
     public void OnOpen()
     {
+
         isOpen = true;
 
         // If the book i sa  fake (if it has events), trigger said events
