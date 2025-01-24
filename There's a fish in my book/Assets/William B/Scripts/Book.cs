@@ -23,13 +23,13 @@ public class Book : MonoBehaviour
     [SerializeField] private Material color;
     [SerializeField] UnityEvent onOpenEvents;
     private InputDevice leftController, rightController;
-    public Book(TextMeshPro nTitle, TextMeshPro nAuthor, Sprite nGenre, Material nColor, UnityEvent newEvents = null)
+    public Book(string nTitle, string nAuthor, Sprite nGenre, Material nColor, UnityEvent nEvents = null)
     {
-        title = nTitle;
-        author = nAuthor;
+        title.text = nTitle;
+        author.text = nAuthor;
         genre = nGenre;
         color = nColor;
-        onOpenEvents = newEvents;
+        onOpenEvents = nEvents;
     }
 
     /// <summary>
@@ -49,36 +49,15 @@ public class Book : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Hämta de enheter som motsvarar de vänstra och högra kontrollerna
-        var inputDevices = new List<InputDevice>();
-        InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.HeldInHand | InputDeviceCharacteristics.Controller, inputDevices);
-
-        foreach (var device in inputDevices)
-        {
-            if (device.characteristics.HasFlag(InputDeviceCharacteristics.Left))
-            {
-                leftController = device;
-            }
-            else if (device.characteristics.HasFlag(InputDeviceCharacteristics.Right))
-            {
-                rightController = device;
-            }
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
         // Kolla om knappen är nedtryckt på vänster kontroll
-        if (leftController.isValid && leftController.TryGetFeatureValue(CommonUsages.primaryButton, out bool isPressed) && isPressed)
+        if (leftController.isValid && leftController.TryGetFeatureValue(CommonUsages.primaryButton, out bool isPressed))
         {
             
-        }
-
-        // Kolla om knappen är nedtryckt på höger kontroll
-        if (rightController.isValid && rightController.TryGetFeatureValue(CommonUsages.primaryButton, out bool isPressedRight) && isPressedRight)
-        {
-            Debug.Log("Höger knapp trycks på.");
         }
     }
 }
