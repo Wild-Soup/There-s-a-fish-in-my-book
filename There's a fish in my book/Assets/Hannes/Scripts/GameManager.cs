@@ -1,13 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.IO.Compression;
 using System.Linq;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.EventSystems;
-using UnityEngine.Rendering;
-using UnityEngine.UI;
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -45,7 +40,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time -= Time.deltaTime;
+        time += Time.deltaTime;
     }
 
     public int Score
@@ -58,6 +53,7 @@ public class GameManager : MonoBehaviour
 
     public void StartDay()
     {
+        SetBooks();
     }
     /// <summary>
     /// creates books for the day
@@ -73,29 +69,50 @@ public class GameManager : MonoBehaviour
         // gets the amount of books that will be cloned during this day
         int cloneBooksCount = Random.Range(days[day - 1].minTrapCount, days[day - 1].maxTrapCount);
 
+        // creates a  list of all the books that will generate
         generatedBooks = new TempBook[booksCount + trapBooksCount + cloneBooksCount];
         correctBooks = new TempBook[mainBooksCount];
+        // a list contain unused titles
+        List<string> availableTitles = new List<string>();
+        // adds every title to the available titles
+        foreach (string title in titles)
+        {
+            availableTitles.Add(title);
+        }
 
         for (int i = 0; i < booksCount; i++)
         {
+            // fail safe for if all titles have been used
+            if (availableTitles.Count == 0)
+                break;
+
             // creates the book
-            generatedBooks[i] = new TempBook(titles[Random.Range(0, titles.Length)],
-                authorName[Random.Range(0, authorName.Length)],
-                genres[Random.Range(0, genres.Length)],
-                colors[Random.Range(0, colors.Length)]);
+            generatedBooks[i] = new TempBook(availableTitles[Random.Range(0, availableTitles.Count)], // all possible titles
+                authorName[Random.Range(0, authorName.Length)], // all possible author names
+                genres[Random.Range(0, genres.Length)], // all possible generes
+                colors[Random.Range(0, colors.Length)]); // all possible colors
             // make this book a main book if i is less than the amount of main books
             if (i < mainBooksCount)
                 correctBooks[i] = generatedBooks[i];
+            // removes this books title from the available titles
+            availableTitles.Remove(generatedBooks[i].title);
         }
 
         for (int i = 0; i < trapBooksCount; i++)
         {
+            // fail safe for if all titles have been used
+            if (availableTitles.Count == 0)
+                break;
+
             // creates a trap book
-            generatedBooks[booksCount + i] = new TempBook(titles[Random.Range(0, titles.Length)],
+            generatedBooks[booksCount + i] = new TempBook(availableTitles[Random.Range(0, availableTitles.Count)],
                 authorName[Random.Range(0, authorName.Length)],
                 genres[Random.Range(0, genres.Length)],
                 colors[Random.Range(0, colors.Length)],
                 possibleEvents[Random.Range(0, possibleEvents.Length)]);
+
+            // removes this books title from the available titles
+            availableTitles.Remove(generatedBooks[i].title);
         }
 
         for (int i = 0; i < cloneBooksCount; i++)
@@ -111,7 +128,45 @@ public class GameManager : MonoBehaviour
     /// <returns>returns the new book</returns>
     private TempBook CloneBook(TempBook original)
     {
-        return null;
+        List<List<char>> letterarray = new List<List<char>> { "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ".ToCharArray().ToList(), "edgpatqnlijwmubofcyhkrvszxHDGBFECATLXJNMQROPZIWYUKVS ".ToCharArray().ToList() };
+        // a list with all letters of the
+        char[] title = original.title.ToCharArray();
+        // a list with all letters of the author
+        char[] author = original.authorName.ToCharArray();
+        // how many lettters will be changed
+        int changedLetters = 6 - day;
+
+        for (int i = 0; i < changedLetters; i++)
+        {
+            // the index of letters that have changed
+            int[] changedIndex = new int[changedLetters];
+
+            // the index for the letter that will be changed
+            int currentIndex = 0;
+
+            // the currentIndex will be randomized once and then again if the given index has already been used
+            do
+            {
+                currentIndex = Random.Range(0, title.Length + author.Length);
+            }
+            while (changedIndex.Contains(currentIndex));
+            // sets the letter att the current index to a coresponding letter in the letterarray
+            if (currentIndex >= title.Length)
+                author[currentIndex - title.Length] = letterarray[1][letterarray[0].FindIndex(x => x == author[currentIndex - title.Length])];
+            else
+                title[currentIndex] = letterarray[1][letterarray[0].FindIndex(x => x == title[currentIndex])];
+        }
+        string newTitle = "";
+        string newAuthor = "";
+        // turns the list into a string
+        foreach (char letter in title)
+            newTitle += letter;
+        // turns the list into a string
+        foreach (char letter in author)
+            newAuthor += letter;
+
+        // returns the new cloned book
+        return new TempBook(newTitle, newAuthor, original.genre, original.color);
     }
 
     public void ResetGame()
@@ -120,7 +175,6 @@ public class GameManager : MonoBehaviour
 
     public void EndDay()
     {
-
     }
 
     public void GameOver()
