@@ -996,13 +996,13 @@ MonoBehaviour:
   time: 60
   days:
   - minBookCount: 1
-    maxBookCount: 1
+    maxBookCount: 3
     minCorrectCount: 1
-    maxCorrectCount: 1
+    maxCorrectCount: 2
     minTrapCount: 1
-    maxTrapCount: 1
+    maxTrapCount: 2
     minClones: 1
-    maxClones: 1
+    maxClones: 4
   generatedBooks: []
   correctBooks: []
   nrCorrectBooks: 0
@@ -1017,6 +1017,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 02070be342c83ad4cb55b128368b847a, type: 3}
   colors:
   - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 0.17039895, g: 1, b: 0, a: 0}
+  - {r: 0, g: 0.27518415, b: 1, a: 0}
+  - {r: 0, g: 1, b: 0.5369036, a: 0}
+  - {r: 1, g: 0, b: 0.6763654, a: 0}
   possibleEvents:
   - m_PersistentCalls:
       m_Calls: []
