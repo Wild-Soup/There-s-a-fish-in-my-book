@@ -12,17 +12,20 @@ public class Book : MonoBehaviour
 
     // Variables
     private bool isOpen = false;
-    public bool IsOpen
-    {
-         get {return isOpen; }
-    }
 
     // Reference
-    [SerializeField] private TextMeshPro title, author;
-    [SerializeField] private Sprite genre;
-    [SerializeField] private Material color;
+    public TextMeshPro title { get; private set; }
+    public TextMeshPro author { get; private set; }
+    public Sprite genre { get; private set; }
+    public Material color { get; private set; }
     [SerializeField] UnityEvent onOpenEvents;
-    private InputDevice leftController, rightController;
+
+    // Function-like
+    public bool IsOpen
+    {
+        get { return isOpen; }
+    }
+
     public Book(string nTitle, string nAuthor, Sprite nGenre, Color nColor, UnityEvent nEvents = null)
     {
         title.text = nTitle;
@@ -54,10 +57,6 @@ public class Book : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Kolla om knappen är nedtryckt på vänster kontroll
-        if (leftController.isValid && leftController.TryGetFeatureValue(CommonUsages.primaryButton, out bool isPressed))
-        {
-            
-        }
+
     }
 }
