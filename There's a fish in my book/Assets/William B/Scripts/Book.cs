@@ -23,12 +23,12 @@ public class Book : MonoBehaviour
     [SerializeField] private Material color;
     [SerializeField] UnityEvent onOpenEvents;
     private InputDevice leftController, rightController;
-    public Book(string nTitle, string nAuthor, Sprite nGenre, Material nColor, UnityEvent nEvents = null)
+    public Book(string nTitle, string nAuthor, Sprite nGenre, Color nColor, UnityEvent nEvents = null)
     {
         title.text = nTitle;
         author.text = nAuthor;
         genre = nGenre;
-        color = nColor;
+        color.color = nColor;
         onOpenEvents = nEvents;
     }
 
