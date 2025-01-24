@@ -128,7 +128,7 @@ public class GameManager : MonoBehaviour
     /// <returns>returns the new book</returns>
     private TempBook CloneBook(TempBook original)
     {
-        List<List<char>> letterarray = new List<List<char>> { "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray().ToList(), "edgpatqnlijwmubofcyhkrvszxHDGBFECATLXJNMQROPZIWYUKVS".ToCharArray().ToList() };
+        List<List<char>> letterarray = new List<List<char>> { "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ".ToCharArray().ToList(), "edgpatqnlijwmubofcyhkrvszxHDGBFECATLXJNMQROPZIWYUKVS ".ToCharArray().ToList() };
         // a list with all letters of the
         char[] title = original.title.ToCharArray();
         // a list with all letters of the author
@@ -149,8 +149,7 @@ public class GameManager : MonoBehaviour
             {
                 currentIndex = Random.Range(0, title.Length + author.Length);
             }
-            while (changedIndex.Contains(currentIndex) || (currentIndex >= title.Length && (author[currentIndex - title.Length].ToString() != " ")) || title[currentIndex].ToString() != " ");
-            Debug.Log(currentIndex);
+            while (changedIndex.Contains(currentIndex));
             // sets the letter att the current index to a coresponding letter in the letterarray
             if (currentIndex >= title.Length)
                 author[currentIndex - title.Length] = letterarray[1][letterarray[0].FindIndex(x => x == author[currentIndex - title.Length])];
