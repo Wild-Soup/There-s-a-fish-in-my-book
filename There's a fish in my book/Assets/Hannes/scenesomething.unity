@@ -992,7 +992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 175e25847c1f8bd4d9eef13e5e7757dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  day: 1
+  day: 0
   time: 60
   days:
   - minBookCount: 1
@@ -1005,25 +1005,13 @@ MonoBehaviour:
     maxClones: 4
   generatedBooks: []
   correctBooks: []
-  nrCorrectBooks: 0
-  nrIncorrectBooks: 0
-  titles:
-  - How to kill Tristan
-  - How to seduce a dragon
-  authorName:
-  - Henning
-  - Noel
-  genres:
-  - {fileID: 21300000, guid: 02070be342c83ad4cb55b128368b847a, type: 3}
-  colors:
-  - {r: 1, g: 0, b: 0, a: 0}
-  - {r: 0.17039895, g: 1, b: 0, a: 0}
-  - {r: 0, g: 0.27518415, b: 1, a: 0}
-  - {r: 0, g: 1, b: 0.5369036, a: 0}
-  - {r: 1, g: 0, b: 0.6763654, a: 0}
-  possibleEvents:
-  - m_PersistentCalls:
-      m_Calls: []
+  nrCorrectBooks: -39
+  nrIncorrectBooks: -59
+  titles: []
+  authorName: []
+  genres: []
+  colors: []
+  possibleEvents: []
 --- !u!4 &2040411402
 Transform:
   m_ObjectHideFlags: 0
