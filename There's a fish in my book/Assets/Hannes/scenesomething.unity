@@ -781,7 +781,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2040411401}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetBooks
+        m_MethodName: StartDay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -995,20 +995,18 @@ MonoBehaviour:
   day: 1
   time: 60
   days:
-  - minBookCount: 5
-    maxBookCount: 10
-    minCorrectCount: 2
-    maxCorrectCount: 4
-    minTrapCount: 0
+  - minBookCount: 1
+    maxBookCount: 1
+    minCorrectCount: 1
+    maxCorrectCount: 1
+    minTrapCount: 1
     maxTrapCount: 1
     minClones: 1
-    maxClones: 2
-  nrBooks: 1
-  nrRealBooks: 1
-  nrCorrectBooks: 0
-  nrIncorrectBooks: 0
+    maxClones: 1
   generatedBooks: []
   correctBooks: []
+  nrCorrectBooks: 0
+  nrIncorrectBooks: 0
   titles:
   - How to kill Tristan
   - How to seduce a dragon
@@ -1020,7 +1018,7 @@ MonoBehaviour:
   colors:
   - {r: 1, g: 0, b: 0, a: 0}
   possibleEvents:
-    m_PersistentCalls:
+  - m_PersistentCalls:
       m_Calls: []
 --- !u!4 &2040411402
 Transform:
