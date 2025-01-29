@@ -1007,10 +1007,12 @@ MonoBehaviour:
   correctBooks: []
   nrCorrectBooks: -39
   nrIncorrectBooks: -59
-  titles: []
+  titles:
+  - How to Mock a Killingbird
   authorName: []
   genres: []
-  colors: []
+  colors:
+  - {r: 0, g: 0, b: 0, a: 0}
   possibleEvents: []
 --- !u!4 &2040411402
 Transform:
