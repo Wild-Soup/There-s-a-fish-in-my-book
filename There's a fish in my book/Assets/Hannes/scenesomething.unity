@@ -992,25 +992,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 175e25847c1f8bd4d9eef13e5e7757dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  day: 0
+  day: 1
   time: 60
   days:
   - minBookCount: 1
     maxBookCount: 3
     minCorrectCount: 1
     maxCorrectCount: 2
-    minTrapCount: 1
-    maxTrapCount: 2
-    minClones: 1
+    minTrapCount: 0
+    maxTrapCount: 0
+    minClones: 3
     maxClones: 4
   generatedBooks: []
   correctBooks: []
-  nrCorrectBooks: -39
-  nrIncorrectBooks: -59
+  nrCorrectBooks: 0
+  nrIncorrectBooks: 0
   titles:
   - How to Mock a Killingbird
-  authorName: []
-  genres: []
+  - Mein Kraft
+  - The Art of Lore
+  - The Adventure of Lover boy
+  - "H\xE5rig P\xE5ta and the thinkers gem"
+  - The art of touching grass
+  - The Bible 2.0, the revenge of christ.
+  - Assault on tall people
+  - Revenge of the Zit, rise of the Acne.
+  - 110 stories
+  - how to kill a turtle
+  authorName:
+  - Long Willy De
+  - Mustache Man
+  - H.Dolf
+  - Gerald Badminton
+  - Thunder Mcking
+  - Jhon Diddleman
+  - Sung Jinwoo
+  - Lowers A Tower
+  - Mario
+  genres:
+  - {fileID: 21300000, guid: 02070be342c83ad4cb55b128368b847a, type: 3}
   colors:
   - {r: 0, g: 0, b: 0, a: 0}
   possibleEvents: []

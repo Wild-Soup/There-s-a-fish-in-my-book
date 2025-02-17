@@ -6,6 +6,7 @@ using UnityEngine;
 [CustomEditor(typeof(GameManager))]
 public class GameManagerEditor : Editor
 {
+    private SerializedProperty bookPrefab;
     private SerializedProperty day;
     private SerializedProperty time;
     private SerializedProperty nrBooks;
@@ -34,6 +35,7 @@ public class GameManagerEditor : Editor
 
     private void OnEnable()
     {
+        bookPrefab = serializedObject.FindProperty("bookPrefab");
         day = serializedObject.FindProperty("day");
         days = serializedObject.FindProperty("days");
         time = serializedObject.FindProperty("time");
@@ -54,6 +56,8 @@ public class GameManagerEditor : Editor
     public override void OnInspectorGUI()
     {
         serializedObject.UpdateIfRequiredOrScript();
+
+        EditorGUILayout.PropertyField(bookPrefab, new GUIContent("Book prefab"));
 
         timeDropDown = EditorGUILayout.Foldout(timeDropDown, "Progression");
 

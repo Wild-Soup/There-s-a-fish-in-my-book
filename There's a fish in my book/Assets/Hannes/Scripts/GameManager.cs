@@ -1,12 +1,16 @@
 using System.Collections.Generic;
 using System.IO.Compression;
 using System.Linq;
+using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Tilemaps;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private GameObject bookPrefab;
+
     public static GameManager instance;
 
     private List<Transform> availablePositions;
@@ -64,13 +68,13 @@ public class GameManager : MonoBehaviour
     private void SetBooks()
     {
         // gets the amount of generated books that will appear during this day
-        int booksCount = Random.Range(days[day - 1].minBookCount, days[day - 1].maxBookCount);
+        int booksCount = Random.Range(days[day - 1].minBookCount, days[day - 1].maxBookCount + 1);
         // gets the amount of generated books that will be correct during this day
-        int mainBooksCount = Random.Range(days[day - 1].minCorrectCount, days[day - 1].maxCorrectCount);
+        int mainBooksCount = Random.Range(days[day - 1].minCorrectCount, days[day - 1].maxCorrectCount + 1);
         // gets the amount of generated books that will be traps during this day
-        int trapBooksCount = Random.Range(days[day - 1].minTrapCount, days[day - 1].maxTrapCount);
+        int trapBooksCount = Random.Range(days[day - 1].minTrapCount, days[day - 1].maxTrapCount + 1);
         // gets the amount of books that will be cloned during this day
-        int cloneBooksCount = Random.Range(days[day - 1].minTrapCount, days[day - 1].maxTrapCount);
+        int cloneBooksCount = Random.Range(days[day - 1].minTrapCount, days[day - 1].maxTrapCount + 1);
 
         // creates a  list of all the books that will generate
         generatedBooks = new Book[booksCount + trapBooksCount + cloneBooksCount];
@@ -78,19 +82,15 @@ public class GameManager : MonoBehaviour
         // a list contain unused titles
         List<string> availableTitles = new List<string>();
         // adds every title to the available titles
-        foreach (string title in titles)
-        {
-            availableTitles.Add(title);
-        }
-
+        availableTitles.AddRange(titles);
         for (int i = 0; i < booksCount; i++)
         {
             // fail safe for if all titles have been used
             if (availableTitles.Count == 0)
                 break;
-
+            generatedBooks[i] = Instantiate(bookPrefab).GetComponent<Book>();
             // creates the book
-            generatedBooks[i] = new Book(availableTitles[Random.Range(0, availableTitles.Count)], // all possible titles
+            generatedBooks[i].Initialize(availableTitles[Random.Range(0, availableTitles.Count)], // all possible titles
                 authorName[Random.Range(0, authorName.Length)], // all possible author names
                 genres[Random.Range(0, genres.Length)], // all possible generes
                 colors[Random.Range(0, colors.Length)]); // all possible colors
@@ -106,13 +106,12 @@ public class GameManager : MonoBehaviour
             // fail safe for if all titles have been used
             if (availableTitles.Count == 0)
                 break;
-
+            generatedBooks[booksCount + i] = Instantiate(bookPrefab).GetComponent<Book>();
             // creates a trap book
-            generatedBooks[booksCount + i] = new Book(availableTitles[Random.Range(0, availableTitles.Count)],
-                authorName[Random.Range(0, authorName.Length)],
-                genres[Random.Range(0, genres.Length)],
-                colors[Random.Range(0, colors.Length)],
-                possibleEvents[Random.Range(0, possibleEvents.Length)]);
+            generatedBooks[booksCount + i].Initialize(availableTitles[Random.Range(0, availableTitles.Count)], // all possible titles
+                authorName[Random.Range(0, authorName.Length)], // all possible author names
+                genres[Random.Range(0, genres.Length)], // all possible generes
+                colors[Random.Range(0, colors.Length)]); // all possible colors
 
             // removes this books title from the available titles
             availableTitles.Remove(generatedBooks[i].title.text);
@@ -131,7 +130,7 @@ public class GameManager : MonoBehaviour
     /// <returns>returns the new book</returns>
     private Book CloneBook(Book original)
     {
-        List<List<char>> letterarray = new List<List<char>> { "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ".ToCharArray().ToList(), "edgpatqnlijwmubofcyhkrvszxHDGBFECATLXJNMQROPZIWYUKVS ".ToCharArray().ToList() };
+        List<List<char>> letterarray = new List<List<char>> { "abcdefghijklmnopqrstuvwxyzÂ‰ˆABCDEFGHIJKLMNOPQRSTUVWXYZ≈ƒ÷ ".ToCharArray().ToList(), "edgpatqnlijwmubofcyhkrvszx‰ÂˆHDGBFECATLXJNMQROPZIWYUKVSƒ≈÷ ".ToCharArray().ToList() };
         // a list with all letters of the
         char[] title = original.title.text.ToCharArray();
         // a list with all letters of the author
@@ -167,9 +166,10 @@ public class GameManager : MonoBehaviour
         // turns the list into a string
         foreach (char letter in author)
             newAuthor += letter;
-
+        Book newBook = Instantiate(bookPrefab).GetComponent<Book>();
+        newBook.Initialize(newTitle, newAuthor, original.genre, original.color.color);
         // returns the new cloned book
-        return new Book(newTitle, newAuthor, original.genre, original.color.color);
+        return newBook;
     }
 
     public void ResetGame()
