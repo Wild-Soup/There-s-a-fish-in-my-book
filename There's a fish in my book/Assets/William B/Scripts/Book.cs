@@ -14,8 +14,8 @@ public class Book : MonoBehaviour
     private bool isOpen = false;
 
     // Reference
-    public TextMeshPro title { get; private set; }
-    public TextMeshPro author { get; private set; }
+    public TextMeshProUGUI title { get; private set; }
+    public TextMeshProUGUI author { get; private set; }
     public Sprite genre { get; private set; }
     public Material color { get; private set; }
     [SerializeField] UnityEvent onOpenEvents;
@@ -28,6 +28,11 @@ public class Book : MonoBehaviour
 
     public Book(string nTitle, string nAuthor, Sprite nGenre, Color nColor, UnityEvent nEvents = null)
     {
+        // References
+        title = transform.Find("title").GetComponent<TextMeshProUGUI>();
+        author = transform.Find("author").GetComponent<TextMeshProUGUI>();
+
+        // Assignment
         title.text = nTitle;
         author.text = nAuthor;
         genre = nGenre;
