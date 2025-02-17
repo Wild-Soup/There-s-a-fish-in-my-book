@@ -26,7 +26,7 @@ public class Book : MonoBehaviour
         get { return isOpen; }
     }
 
-    public Book(string nTitle, string nAuthor, Sprite nGenre, Color nColor, UnityEvent nEvents = null)
+    public void Initialize(string nTitle, string nAuthor, Sprite nGenre, Color nColor, UnityEvent nEvents = null)
     {
         // References
         title = transform.Find("title").GetComponent<TextMeshProUGUI>();
