@@ -32,6 +32,7 @@ public class Book : MonoBehaviour
         Transform canvas = transform.Find("Canvas").transform;
         title = canvas.Find("title").GetComponent<TextMeshProUGUI>();
         author = canvas.Find("author").GetComponent<TextMeshProUGUI>();
+        color = GetComponent<MeshRenderer>().material;
 
         // Assignment
         title.text = nTitle;
