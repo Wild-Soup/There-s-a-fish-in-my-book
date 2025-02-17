@@ -29,8 +29,9 @@ public class Book : MonoBehaviour
     public void Initialize(string nTitle, string nAuthor, Sprite nGenre, Color nColor, UnityEvent nEvents = null)
     {
         // References
-        title = transform.Find("title").GetComponent<TextMeshProUGUI>();
-        author = transform.Find("author").GetComponent<TextMeshProUGUI>();
+        Transform canvas = transform.Find("Canvas").transform;
+        title = canvas.Find("title").GetComponent<TextMeshProUGUI>();
+        author = canvas.Find("author").GetComponent<TextMeshProUGUI>();
 
         // Assignment
         title.text = nTitle;
