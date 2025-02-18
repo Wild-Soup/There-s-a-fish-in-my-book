@@ -3,7 +3,6 @@ using System.IO.Compression;
 using System.Linq;
 using TMPro;
 using Unity.VisualScripting.Antlr3.Runtime;
-using UnityEditor.Purchasing;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Tilemaps;
@@ -23,6 +22,7 @@ public class GameManager : MonoBehaviour
     // amount of books the game has generate
     [SerializeField] private Book[] generatedBooks;
     [SerializeField] private Book[] correctBooks;
+    [SerializeField] private List<Book> scannedBooks;
     // number of correct and incorrect books the player has collected
     [SerializeField] private int nrCorrectBooks = 0;
     [SerializeField] private int nrIncorrectBooks = 0;
@@ -196,17 +196,33 @@ public class GameManager : MonoBehaviour
         // returns the new cloned book
         return newBook;
     }
-
-    public void ResetGame()
-    {
-    }
-
     public void EndDay()
     {
     }
 
     public void GameOver()
     {
+    }
+    /// <summary>
+    /// Scans a book and updates all the related values
+    /// </summary>
+    /// <param name="book">The book that will be scanned</param>
+    /// <returns>if the book was a correct book or not</returns>
+    public bool ScanBook(Book book)
+    {
+        if (scannedBooks.Contains(book))
+            return false;
+
+        scannedBooks.Add(book);
+
+        if (correctBooks.Contains(book))
+        {
+            nrCorrectBooks++;
+            return true;
+        }
+
+        nrIncorrectBooks++;
+        return false;
     }
     [System.Serializable]
     public struct Day

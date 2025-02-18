@@ -349,7 +349,7 @@
                     "name": "Is Tracked",
                     "type": "Button",
                     "id": "82eb6741-beef-48d3-83ab-a957dc1caa1e",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -1239,6 +1239,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "ExitHide",
+                    "type": "Button",
+                    "id": "56491d15-503c-4bb4-b83c-8c46c6f18881",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1470,6 +1479,17 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "Grip Rotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4170539b-01dc-4106-a6bd-70a94fa9722a",
+                    "path": "<XRController>{RightHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExitHide",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -1932,7 +1952,7 @@
                     "name": "Submit",
                     "type": "Button",
                     "id": "eba98c2e-6268-4233-bb88-946287bc753c",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -1941,7 +1961,7 @@
                     "name": "Cancel",
                     "type": "Button",
                     "id": "448b396b-0885-4543-ac5a-8b3405da6791",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -1987,6 +2007,15 @@
                     "type": "PassThrough",
                     "id": "533aeb95-18b2-4a83-a69d-f6e0be72ff8a",
                     "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "awd",
+                    "type": "Button",
+                    "id": "f1c97fe0-093a-4d19-82a6-cf1d0b59e77b",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -2375,6 +2404,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ef39a40b-fa03-465a-8fe3-c0c94e39b71a",
+                    "path": "<XRController>{LeftHand}/menu",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "awd",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
