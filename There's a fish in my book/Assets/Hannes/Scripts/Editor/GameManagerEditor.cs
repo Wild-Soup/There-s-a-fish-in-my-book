@@ -59,6 +59,8 @@ public class GameManagerEditor : Editor
     {
         serializedObject.UpdateIfRequiredOrScript();
 
+        if (bookPrefab.boxedValue == null)
+            EditorGUILayout.HelpBox("This script needs a book prefab", MessageType.Error);
         EditorGUILayout.PropertyField(bookPrefab, new GUIContent("Book prefab"));
         EditorGUILayout.PropertyField(bookshelvesPositions, new GUIContent("NEIN"));
 
@@ -150,6 +152,11 @@ public class GameManagerEditor : Editor
 
             EditorGUI.indentLevel--;
         }
+
+        GameManager instance = (GameManager)target;
+        if (GUILayout.Button("Start Day") && Application.isPlaying)
+            instance.StartDay();
+
 
         serializedObject.ApplyModifiedProperties();
     }
