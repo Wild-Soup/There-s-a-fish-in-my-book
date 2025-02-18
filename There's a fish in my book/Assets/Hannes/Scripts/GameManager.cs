@@ -211,18 +211,16 @@ public class GameManager : MonoBehaviour
     /// <returns>if the book was a correct book or not</returns>
     public bool ScanBook(Book book)
     {
-        foreach (Book scannedBook in scannedBooks)
-            if (scannedBook == book)
-                return false;
+        if (scannedBooks.Contains(book))
+            return false;
 
         scannedBooks.Add(book);
 
-        foreach (Book correct in correctBooks)
-            if (correct == book)
-            {
-                nrCorrectBooks++;
-                return true;
-            }
+        if (correctBooks.Contains(book))
+        {
+            nrCorrectBooks++;
+            return true;
+        }
 
         nrIncorrectBooks++;
         return false;
