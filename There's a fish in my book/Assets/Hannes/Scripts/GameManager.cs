@@ -3,6 +3,7 @@ using System.IO.Compression;
 using System.Linq;
 using TMPro;
 using Unity.VisualScripting.Antlr3.Runtime;
+using UnityEditor.Purchasing;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Tilemaps;
@@ -10,6 +11,7 @@ using UnityEngine.Tilemaps;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject bookPrefab;
+    [SerializeField] private Transform[] bookshelvesPositions;
 
     public static GameManager instance;
 
@@ -57,10 +59,33 @@ public class GameManager : MonoBehaviour
             return 0;
         }
     }
-
+    /// <summary>
+    /// Starts a new day
+    /// </summary>
     public void StartDay()
     {
+        // destroys all books if they already exist
+        for (int i = 0; i < generatedBooks.Length; i++)
+            if (generatedBooks[i] != null)
+                Destroy(generatedBooks[i].gameObject);
+
+        // generates books
         SetBooks();
+        // makes a list with all possible positions around the library
+        List<Transform> possiblePositions = new List<Transform>();
+        possiblePositions.AddRange(bookshelvesPositions);
+
+        // places all the books around the library
+        foreach (Book book in generatedBooks)
+        {
+            // gets a random position
+            int index = Random.Range(0, possiblePositions.Count);
+            // sets the books position and rotation to the randomized position and rotation
+            book.transform.position = possiblePositions[index].position;
+            book.transform.rotation = possiblePositions[index].rotation;
+            // removes the already used position from the list
+            possiblePositions.RemoveAt(index);
+        }
     }
     /// <summary>
     /// creates books for the day
