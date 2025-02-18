@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-
+/*
 [CustomEditor(typeof(flashbang_script))]
 public class ButtonEditor : Editor
 {
@@ -17,3 +17,4 @@ public class ButtonEditor : Editor
         }
     }
 }
+*/
