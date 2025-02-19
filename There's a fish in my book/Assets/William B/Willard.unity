@@ -716,7 +716,7 @@ PrefabInstance:
     - target: {fileID: 638832009083926772, guid: 75c9b6bcc65f3114496015352037bbc1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.4
+      value: 2.05
       objectReference: {fileID: 0}
     - target: {fileID: 638832009083926772, guid: 75c9b6bcc65f3114496015352037bbc1,
         type: 3}
@@ -798,6 +798,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_enableAutoSizing
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4326761367364227236, guid: 75c9b6bcc65f3114496015352037bbc1,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 84f78630a80075a48a5a7de9f9b00295, type: 3}
+    - target: {fileID: 4326761367364227236, guid: 75c9b6bcc65f3114496015352037bbc1,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5595537145125838380, guid: 75c9b6bcc65f3114496015352037bbc1,
         type: 3}

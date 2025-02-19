@@ -5,18 +5,15 @@ using UnityEngine;
 public class SoundIntensityController : MonoBehaviour
 {
     // Attributes
-    [Tooltip("How fast the object needs to move to reach maxmimum loudness when it hits the ground.")]
+    [Tooltip("How fast the object needs to move to reach maxmimum intensity when it hits the ground.")]
     [SerializeField] private float maxVelocity = 10f;
 
     // Variables
-    private float loudness, velocity, prevVelocity;
+    private float intensity, velocity, prevVelocity;
 
     // References
     private Rigidbody rb;
     private AudioSource source;
-
-    [Tooltip("First clip is used for small collisions. Second for medium sized speed. Third for fast collisions.")]
-    [SerializeField] private List<AudioClip> sounds = new List<AudioClip>();
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +27,7 @@ public class SoundIntensityController : MonoBehaviour
     {
         prevVelocity = velocity;
         velocity = rb.velocity.magnitude;
-        loudness = Mathf.Clamp(prevVelocity / maxVelocity,0.1f,1); //  the potental loudness increases with velocity until it reaches the max velocity
+        intensity = Mathf.Clamp(prevVelocity / maxVelocity,0.1f,1); //  the potental intensity increases with velocity until it reaches the max velocity
 
     }
 
@@ -38,26 +35,12 @@ public class SoundIntensityController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // Only play sounds when there are sounds
-        if (sounds.Count > 0)
+        if (source.clip)
         {
-            // Low intensity
-            if (loudness >= 0 && loudness < 0.333f)
-            {
-                source.PlayOneShot(sounds[0], loudness);
-            }
-
-            // Medium intensity
-            else if (loudness >= 0.333f && loudness < 0.667f)
-            {
-                source.PlayOneShot(sounds[1], loudness);
-            }
-
-            // High intensity
-            else if (loudness >= 0.667f && loudness <= 1)
-            {
-                source.PlayOneShot(sounds[2], loudness);
-            }
+            source.pitch = Mathf.Clamp(Mathf.Log(intensity * 10,10),0.6f,1);
+            source.volume = intensity;
+            source.Play();
         }
-        Debug.Log("velocity: " + prevVelocity + ", loudness: " + loudness);
+        Debug.Log("velocity: " + prevVelocity + ", intensity: " + intensity);
     }
 }
