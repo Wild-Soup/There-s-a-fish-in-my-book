@@ -646,15 +646,9 @@ MonoBehaviour:
     maxTrapCount: 1
     minClones: 3
     maxClones: 4
-  generatedBooks:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  correctBooks:
-  - {fileID: 0}
-  - {fileID: 0}
+  generatedBooks: []
+  correctBooks: []
+  scannedBooks: []
   nrCorrectBooks: 0
   nrIncorrectBooks: 0
   titles:

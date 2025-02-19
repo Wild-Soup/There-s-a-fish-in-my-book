@@ -6,15 +6,16 @@ using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Tilemaps;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject bookPrefab;
-    [SerializeField] private Transform[] bookshelvesPositions;
-
     public static GameManager instance;
 
-    private List<Transform> availablePositions;
+    // the prefab for the books
+    [SerializeField] private GameObject bookPrefab;
+    // positions that books can be placed
+    [SerializeField] private Transform[] bookshelvesPositions;
     // time and game progression
     [SerializeField] private int day = 1;
     [SerializeField] private float time = 0;
@@ -59,7 +60,7 @@ public class GameManager : MonoBehaviour
             return 0;
         }
     }
-    /// <summary>
+    /// <summary> //
     /// Starts a new day
     /// </summary>
     public void StartDay()
