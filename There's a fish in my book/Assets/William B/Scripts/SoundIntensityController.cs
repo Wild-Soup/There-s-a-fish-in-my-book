@@ -37,23 +37,26 @@ public class SoundIntensityController : MonoBehaviour
     // Plays the sound on collision
     private void OnCollisionEnter(Collision collision)
     {
-        //// Plays different sound based on the intensity
-        //// Low intensity
-        if (loudness >= 0 && loudness < 0.333f)
+        // Only play sounds when there are sounds
+        if (sounds.Count > 0)
         {
-            source.PlayOneShot(sounds[0], loudness);
-        }
+            // Low intensity
+            if (loudness >= 0 && loudness < 0.333f)
+            {
+                source.PlayOneShot(sounds[0], loudness);
+            }
 
-        //// Medium intensity
-        else if (loudness >= 0.333f && loudness < 0.667f)
-        {
-            source.PlayOneShot(sounds[1], loudness);
-        }
+            // Medium intensity
+            else if (loudness >= 0.333f && loudness < 0.667f)
+            {
+                source.PlayOneShot(sounds[1], loudness);
+            }
 
-        //// High intensity
-        else if (loudness >= 0.667f && loudness <= 1)
-        {
-            source.PlayOneShot(sounds[2], loudness);
+            // High intensity
+            else if (loudness >= 0.667f && loudness <= 1)
+            {
+                source.PlayOneShot(sounds[2], loudness);
+            }
         }
         Debug.Log("velocity: " + prevVelocity + ", loudness: " + loudness);
     }
