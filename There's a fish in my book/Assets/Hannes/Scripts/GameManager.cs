@@ -199,10 +199,13 @@ public class GameManager : MonoBehaviour
     }
     public void EndDay()
     {
+        day++;
+        StartDay();
     }
 
     public void GameOver()
     {
+        gameOverPanel.SetActive(true);
     }
     /// <summary>
     /// Scans a book and updates all the related values
