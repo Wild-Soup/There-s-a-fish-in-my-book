@@ -19,7 +19,8 @@ public class Book : MonoBehaviour
     public TextMeshProUGUI author { get; private set; }
     public Sprite genre { get; private set; }
     public Material color { get; private set; }
-    [SerializeField] UnityEvent onOpenEvents;
+    [SerializeField] private UnityEvent onOpenEvents;
+    [SerializeField] private UnityEvent onCloseEvents;
 
     public InputActionReference openInput;
 
