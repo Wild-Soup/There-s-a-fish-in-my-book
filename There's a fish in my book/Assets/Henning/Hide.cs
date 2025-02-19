@@ -33,6 +33,7 @@ public class Hide : MonoBehaviour
     public IEnumerator HideDelay()
     {
         yield return new WaitForSeconds(0.25f);
+
         player.GetComponent<PlayerManager>().enteringHideout = false;
         oldPos = player.transform.position;
         player.transform.position = hidePos.position;
