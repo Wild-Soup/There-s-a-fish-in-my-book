@@ -6,14 +6,16 @@ using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Tilemaps;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject bookPrefab;
-
     public static GameManager instance;
 
-    private List<Transform> availablePositions;
+    // the prefab for the books
+    [SerializeField] private GameObject bookPrefab;
+    // positions that books can be placed
+    [SerializeField] private Transform[] bookshelvesPositions;
     // time and game progression
     [SerializeField] private int day = 1;
     [SerializeField] private float time = 0;
@@ -21,6 +23,7 @@ public class GameManager : MonoBehaviour
     // amount of books the game has generate
     [SerializeField] private Book[] generatedBooks;
     [SerializeField] private Book[] correctBooks;
+    [SerializeField] private List<Book> scannedBooks;
     // number of correct and incorrect books the player has collected
     [SerializeField] private int nrCorrectBooks = 0;
     [SerializeField] private int nrIncorrectBooks = 0;
@@ -57,10 +60,33 @@ public class GameManager : MonoBehaviour
             return 0;
         }
     }
-
+    /// <summary> //
+    /// Starts a new day
+    /// </summary>
     public void StartDay()
     {
+        // destroys all books if they already exist
+        for (int i = 0; i < generatedBooks.Length; i++)
+            if (generatedBooks[i] != null)
+                Destroy(generatedBooks[i].gameObject);
+
+        // generates books
         SetBooks();
+        // makes a list with all possible positions around the library
+        List<Transform> possiblePositions = new List<Transform>();
+        possiblePositions.AddRange(bookshelvesPositions);
+
+        // places all the books around the library
+        foreach (Book book in generatedBooks)
+        {
+            // gets a random position
+            int index = Random.Range(0, possiblePositions.Count);
+            // sets the books position and rotation to the randomized position and rotation
+            book.transform.position = possiblePositions[index].position;
+            book.transform.rotation = possiblePositions[index].rotation;
+            // removes the already used position from the list
+            possiblePositions.RemoveAt(index);
+        }
     }
     /// <summary>
     /// creates books for the day
@@ -171,17 +197,33 @@ public class GameManager : MonoBehaviour
         // returns the new cloned book
         return newBook;
     }
-
-    public void ResetGame()
-    {
-    }
-
     public void EndDay()
     {
     }
 
     public void GameOver()
     {
+    }
+    /// <summary>
+    /// Scans a book and updates all the related values
+    /// </summary>
+    /// <param name="book">The book that will be scanned</param>
+    /// <returns>if the book was a correct book or not</returns>
+    public bool ScanBook(Book book)
+    {
+        if (scannedBooks.Contains(book))
+            return false;
+
+        scannedBooks.Add(book);
+
+        if (correctBooks.Contains(book))
+        {
+            nrCorrectBooks++;
+            return true;
+        }
+
+        nrIncorrectBooks++;
+        return false;
     }
     [System.Serializable]
     public struct Day

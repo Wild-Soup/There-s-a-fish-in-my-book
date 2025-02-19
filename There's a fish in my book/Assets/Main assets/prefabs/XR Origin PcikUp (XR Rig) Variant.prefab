@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2503087479379899220}
   m_Layer: 0
   m_Name: RIghtHand
-  m_TagString: Untagged
+  m_TagString: hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 8209876178802093877}
   m_Layer: 0
   m_Name: LeftHand
-  m_TagString: Untagged
+  m_TagString: hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -221,17 +221,17 @@ PrefabInstance:
     - target: {fileID: 4129238572347257258, guid: b225c96a9ff954b4fa7acafb83d77627,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.506182
+      value: -1.962004
       objectReference: {fileID: 0}
     - target: {fileID: 4129238572347257258, guid: b225c96a9ff954b4fa7acafb83d77627,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.88
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4129238572347257258, guid: b225c96a9ff954b4fa7acafb83d77627,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.6021805
+      value: -1.0679321
       objectReference: {fileID: 0}
     - target: {fileID: 4129238572347257258, guid: b225c96a9ff954b4fa7acafb83d77627,
         type: 3}
@@ -1063,7 +1063,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0

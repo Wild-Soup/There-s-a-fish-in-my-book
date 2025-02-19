@@ -7,6 +7,7 @@ using UnityEngine;
 public class GameManagerEditor : Editor
 {
     private SerializedProperty bookPrefab;
+    private SerializedProperty bookshelvesPositions;
     private SerializedProperty day;
     private SerializedProperty time;
     private SerializedProperty nrBooks;
@@ -36,6 +37,7 @@ public class GameManagerEditor : Editor
     private void OnEnable()
     {
         bookPrefab = serializedObject.FindProperty("bookPrefab");
+        bookshelvesPositions = serializedObject.FindProperty("bookshelvesPositions");
         day = serializedObject.FindProperty("day");
         days = serializedObject.FindProperty("days");
         time = serializedObject.FindProperty("time");
@@ -57,7 +59,10 @@ public class GameManagerEditor : Editor
     {
         serializedObject.UpdateIfRequiredOrScript();
 
+        if (bookPrefab.boxedValue == null)
+            EditorGUILayout.HelpBox("This script needs a book prefab", MessageType.Error);
         EditorGUILayout.PropertyField(bookPrefab, new GUIContent("Book prefab"));
+        EditorGUILayout.PropertyField(bookshelvesPositions, new GUIContent("NEIN"));
 
         timeDropDown = EditorGUILayout.Foldout(timeDropDown, "Progression");
 
@@ -147,6 +152,11 @@ public class GameManagerEditor : Editor
 
             EditorGUI.indentLevel--;
         }
+
+        GameManager instance = (GameManager)target;
+        if (GUILayout.Button("Start Day") && Application.isPlaying)
+            instance.StartDay();
+
 
         serializedObject.ApplyModifiedProperties();
     }
