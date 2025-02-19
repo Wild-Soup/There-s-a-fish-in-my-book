@@ -24,10 +24,6 @@ public class Item : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ControllerInputHandler.leftController.isValid && ControllerInputHandler.leftController.TryGetFeatureValue(CommonUsages.primaryButton, out bool isPressed))
-        {
-            WhenPickedUp();
-        }
     }
 
     private void WhenPickedUp()
