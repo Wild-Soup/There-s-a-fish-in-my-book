@@ -17,14 +17,20 @@ public class LibrarianAI : MonoBehaviour
     public LayerMask obstacleMask;
     public SphereCollider walkBound;
 
+    public float maxViewRange;
+    public float minViewRange;
+
+
     private NavMeshAgent agent;
     private bool isInHunt;
+    public bool sawHiding;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.speed = speed;
+
     }
 
     // Update is called once per frame
@@ -32,25 +38,37 @@ public class LibrarianAI : MonoBehaviour
     {
         if (isInHunt || anger > maxAnger)
         {
-            if (!Physics.Linecast(transform.position, player.transform.position,obstacleMask))
+            Vector3 pos = transform.InverseTransformPoint(player.transform.position);
+            if (pos.normalized.z > 0.5f && pos.magnitude < maxViewRange || sawHiding)
             {
                 agent.speed = runningSpeed;
 
                 agent.SetDestination(player.transform.position);
-                CancelInvoke();
+
+                if (player.GetComponent<PlayerManager>().enteringHideout)
+                {
+                    sawHiding = true;
+                }
+
+                if (!player.GetComponent<PlayerManager>().isHiding)
+                {
+                    sawHiding = false;
+                }
             }
-            else if(Physics.Linecast(transform.position, player.transform.position,obstacleMask))
+            else
             {
                 agent.speed = speed;
 
-                if(transform.position == agent.destination || agent.velocity.magnitude == 0)
+                if (transform.position == agent.destination || agent.velocity.magnitude == 0)
                 {
                     agent.SetDestination(GetRandomAreaPos(transform.position));
                 }
-
-                Invoke("EndHunt", huntTime);
             }
+
+            
+
         }
+
     }
 
     public void IncreaseAnger(float amount)
@@ -73,6 +91,7 @@ public class LibrarianAI : MonoBehaviour
     {
         isInHunt = false;
         agent.SetDestination(idlePos.transform.position);
+        sawHiding = false;
     }
 
     private Vector3 GetRandomAreaPos(Vector3 pos)
@@ -88,6 +107,7 @@ public class LibrarianAI : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(transform.position, player.transform.position);
+
     }
 
 }
