@@ -14,7 +14,7 @@ public class Scanner : MonoBehaviour
 
             if (isCorrect)
             {
-
+                
             }
             else
             {
@@ -23,4 +23,13 @@ public class Scanner : MonoBehaviour
 
         }
     }
+
+
+    public void OnDrawGizmos()
+    {
+        Gizmos.DrawRay(transform.position, transform.forward);
+
+
+    }
+
 }

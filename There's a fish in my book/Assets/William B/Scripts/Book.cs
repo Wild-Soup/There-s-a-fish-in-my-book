@@ -15,10 +15,10 @@ public class Book : MonoBehaviour
     private bool isOpen = false;
 
     // Reference
-    public TextMeshProUGUI title { get; private set; }
-    public TextMeshProUGUI author { get; private set; }
+    public TextMeshProUGUI title;
+    public TextMeshProUGUI author;
     public Sprite genre { get; private set; }
-    public Material color { get; private set; }
+    public Material color;
     [SerializeField] UnityEvent onOpenEvents;
 
     public InputActionReference openInput;
@@ -33,11 +33,13 @@ public class Book : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /*
         // References
         Transform canvas = transform.Find("Canvas").transform;
         title = canvas.Find("title").GetComponent<TextMeshProUGUI>();
         author = canvas.Find("author").GetComponent<TextMeshProUGUI>();
         color = GetComponent<MeshRenderer>().material;
+        */
     }
 
     private void Update()

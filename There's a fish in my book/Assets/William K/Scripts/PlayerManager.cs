@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
+using Unity.XR.CoreUtils;
+using TMPro;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -12,9 +15,11 @@ public class PlayerManager : MonoBehaviour
     public float playerSpeed;
     public ActionBasedContinuousMoveProvider idk;
     public bool enteringHideout;
+    public GameManager gameManager;
 
     private void OnEnable()
     {
+        gameManager.StartDay();
         hideExit.action.Enable();
 
         hideExit.action.performed += exitHide;
@@ -27,7 +32,8 @@ public class PlayerManager : MonoBehaviour
             transform.position = hidingObject.GetComponent<Hide>().oldPos;
             isHiding = false;
             idk.moveSpeed = playerSpeed;
-            GetComponent<CharacterController>().enabled = true;
+            //GetComponent<CharacterController>().enabled = true;
+            GetComponent<XROrigin>().CameraYOffset = GetComponentInChildren<Scaling>().slider.GetComponent<Slider>().value;
         }
     }
 
@@ -36,7 +42,8 @@ public class PlayerManager : MonoBehaviour
         isHiding = true;
         hidingObject = a;
         idk.moveSpeed = 0;
-        GetComponent<CharacterController>().enabled = false;
+        //GetComponent<CharacterController>().enabled = false;
+        GetComponent<XROrigin>().CameraYOffset = 1;
     }
 
 }
