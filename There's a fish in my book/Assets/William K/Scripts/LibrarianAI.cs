@@ -17,10 +17,8 @@ public class LibrarianAI : MonoBehaviour
     public LayerMask obstacleMask;
     public SphereCollider walkBound;
 
-    public float FOV;
     public float maxViewRange;
     public float minViewRange;
-    public float ratio;
 
 
     private NavMeshAgent agent;
