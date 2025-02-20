@@ -1,11 +1,61 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Scanner : MonoBehaviour
 {
     public LibrarianAI librarian;
     public float angerIncrease;
+    public GameObject librarianAnger;
+    public GameObject scannerEffect;
+    public Collider scanner;
+    private bool isAngerOpen = false;
+    private bool isScannerActive = false;
+    public InputActionReference librarianAngerButton;
+    public InputActionReference scannerButton;
+
+    public void OnEnable()
+    {
+        librarianAngerButton.action.Enable();
+        scannerButton.action.Enable();
+
+        scannerButton.action.performed += ActivateScanner;
+        scannerButton.action.canceled += TurnOffScanner;
+        librarianAngerButton.action.performed += OpenAngerMenu;
+    }
+
+    public void OpenAngerMenu(InputAction.CallbackContext ctx)
+    {
+        print("OpenAngerMenu");
+
+        if (!isAngerOpen)
+        {
+            librarianAnger.SetActive(true);
+            isAngerOpen = true;
+        }
+        else
+        {
+            librarianAnger.SetActive(false);
+            isAngerOpen = false;
+        }
+    }
+
+    public void ActivateScanner(InputAction.CallbackContext ctx)
+    {
+        print("ActivateScanner");
+
+        scanner.enabled = true;
+        scannerEffect.SetActive(true);
+        isScannerActive = true;
+    }
+    public void TurnOffScanner(InputAction.CallbackContext ctx)
+    {
+        scanner.enabled = false;
+        scannerEffect.SetActive(false);
+        isScannerActive = false;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Book"))
@@ -22,14 +72,6 @@ public class Scanner : MonoBehaviour
             }
 
         }
-    }
-
-
-    public void OnDrawGizmos()
-    {
-        Gizmos.DrawRay(transform.position, transform.forward);
-
-
     }
 
 }

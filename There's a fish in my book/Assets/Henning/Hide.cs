@@ -27,15 +27,15 @@ public class Hide : MonoBehaviour
     {
         this.hidePos = hidePos;
         player.GetComponent<PlayerManager>().enteringHideout = true;
+        oldPos = player.transform.position;
         StartCoroutine(HideDelay());
     }
     
     public IEnumerator HideDelay()
     {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.15f);
 
         player.GetComponent<PlayerManager>().enteringHideout = false;
-        oldPos = player.transform.position;
         player.transform.position = hidePos.position;
     }
 
