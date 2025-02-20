@@ -3,8 +3,10 @@ using System.IO.Compression;
 using System.Linq;
 using TMPro;
 using Unity.VisualScripting.Antlr3.Runtime;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
 
@@ -14,8 +16,6 @@ public class GameManager : MonoBehaviour
 
     // the prefab for the books
     [SerializeField] private GameObject bookPrefab;
-    // positions that books can be placed
-    [SerializeField] private Transform[] bookshelvesPositions;
     // time and game progression
     [SerializeField] private int day = 1;
     [SerializeField] private float time = 0;
@@ -45,8 +45,11 @@ public class GameManager : MonoBehaviour
             instance = this;
         else if (instance != this)
             Destroy(this);
-    }
 
+        DontDestroyOnLoad(instance.gameObject);
+
+        StartDay();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -71,21 +74,20 @@ public class GameManager : MonoBehaviour
                 Destroy(generatedBooks[i].gameObject);
 
         // generates books
-        SetBooks();
-        // makes a list with all possible positions around the library
-        List<Transform> possiblePositions = new List<Transform>();
-        possiblePositions.AddRange(bookshelvesPositions);
+        SetBooks();;
+
+        List<GameObject> positions = GameObject.FindGameObjectsWithTag("BookPos").ToList();
 
         // places all the books around the library
         foreach (Book book in generatedBooks)
         {
             // gets a random position
-            int index = Random.Range(0, possiblePositions.Count);
+            int index = Random.Range(0, positions.Count);
             // sets the books position and rotation to the randomized position and rotation
-            book.transform.position = possiblePositions[index].position;
-            book.transform.rotation = possiblePositions[index].rotation;
+            book.transform.position = positions[index].transform.position;
+            book.transform.rotation = positions[index].transform.rotation;
             // removes the already used position from the list
-            possiblePositions.RemoveAt(index);
+            positions.RemoveAt(index);
         }
     }
     /// <summary>
@@ -94,13 +96,13 @@ public class GameManager : MonoBehaviour
     private void SetBooks()
     {
         // gets the amount of generated books that will appear during this day
-        int booksCount = Random.Range(days[day - 1].minBookCount, days[day - 1].maxBookCount + 1);
+        int booksCount = (2*(day - 1)) + 4;
         // gets the amount of generated books that will be correct during this day
-        int mainBooksCount = Random.Range(days[day - 1].minCorrectCount, days[day - 1].maxCorrectCount + 1);
+        int mainBooksCount = (2 * (day - 1)) + 3;
         // gets the amount of generated books that will be traps during this day
-        int trapBooksCount = Random.Range(days[day - 1].minTrapCount, days[day - 1].maxTrapCount + 1);
+        int trapBooksCount = 2 * (day - 1);
         // gets the amount of books that will be cloned during this day
-        int cloneBooksCount = Random.Range(days[day - 1].minTrapCount, days[day - 1].maxTrapCount + 1);
+        int cloneBooksCount = day;
 
         // creates a  list of all the books that will generate
         generatedBooks = new Book[booksCount + trapBooksCount + cloneBooksCount];
@@ -156,7 +158,7 @@ public class GameManager : MonoBehaviour
     /// <returns>returns the new book</returns>
     private Book CloneBook(Book original)
     {
-        List<List<char>> letterarray = new List<List<char>> { "abcdefghijklmnopqrstuvwxyzÂ‰ˆABCDEFGHIJKLMNOPQRSTUVWXYZ≈ƒ÷ ".ToCharArray().ToList(), "edgpatqnlijwmubofcyhkrvszx‰ÂˆHDGBFECATLXJNMQROPZIWYUKVSƒ≈÷ ".ToCharArray().ToList() };
+        List<List<char>> letterarray = new List<List<char>> { "abcdefghijklmnopqrstuvwxyzÂ‰ˆABCDEFGHIJKLMNOPQRSTUVWXYZ≈ƒ÷ ".ToCharArray().ToList(), "edgpatqnlijwmubofcyhkrvszx‰ÂoHDGBFECATLXJNMQROPZIWYUKVSƒ≈O-".ToCharArray().ToList() };
         // a list with all letters of the
         char[] title = original.title.text.ToCharArray();
         // a list with all letters of the author
