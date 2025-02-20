@@ -10,7 +10,7 @@ public class shader_Object_manager : MonoBehaviour
     public string targetTag = "hand";
     public float range=2f;
     public float thicknessModifer = 10f;
-    public float maxthickness;
+    public float maxthickness = 0.025f;
 
     // Start is called before the first frame update
     void Start()
