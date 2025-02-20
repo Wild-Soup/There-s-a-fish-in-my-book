@@ -15,6 +15,9 @@ public class SoundIntensityController : MonoBehaviour
     private Rigidbody rb;
     private AudioSource source;
 
+    [Tooltip("")]
+    [SerializeField] private List<AudioClip> sounds = new List<AudioClip>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,9 +40,9 @@ public class SoundIntensityController : MonoBehaviour
         // Only play sounds when there are sounds
         if (source.clip)
         {
-            source.pitch = Mathf.Clamp(Mathf.Log(intensity * 10,10),0.6f,1);
+            source.pitch = Mathf.Clamp(Mathf.Log(intensity * 10,10),0.7f,1);
             source.volume = intensity;
-            source.Play();
+            source.PlayOneShot(sounds[Random.Range(0, sounds.Count - 1)]);
         }
         Debug.Log("velocity: " + prevVelocity + ", intensity: " + intensity);
     }
