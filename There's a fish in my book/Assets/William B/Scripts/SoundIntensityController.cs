@@ -18,6 +18,9 @@ public class SoundIntensityController : MonoBehaviour
     [Tooltip("")]
     [SerializeField] private List<AudioClip> sounds = new List<AudioClip>();
 
+    [Tooltip("")]
+    [SerializeField] private AnimationCurve pitchCurve;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,9 +41,13 @@ public class SoundIntensityController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // Only play sounds when there are sounds
-        if (source.clip)
+        if (sounds.Count > 0)
         {
-            source.pitch = Mathf.Clamp(Mathf.Log(intensity * 10,10),0.7f,1);
+            // temp variables
+            float iIntensity = pitchCurve.Evaluate(intensity);
+            Debug.Log("better tensity: " + iIntensity);
+
+            source.pitch = iIntensity;
             source.volume = intensity;
             source.PlayOneShot(sounds[Random.Range(0, sounds.Count - 1)]);
         }
