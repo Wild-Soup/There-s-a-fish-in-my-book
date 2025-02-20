@@ -18,10 +18,10 @@ public class LibrarianAI : MonoBehaviour
     public float huntTime;
     public float minWalkDistance;
     public LayerMask obstacleMask;
-    public SphereCollider walkBound;
 
+
+    public float walkRange;
     public float maxViewRange;
-    public float minViewRange;
 
     public GameObject gameOverScreen;
 
@@ -108,12 +108,21 @@ public class LibrarianAI : MonoBehaviour
 
     private Vector3 GetRandomAreaPos(Vector3 pos)
     {
+        float minX = transform.position.x - walkRange;
+        float maxX = transform.position.x + walkRange;
+        float minZ = transform.position.z - walkRange;
+        float maxZ = transform.position.z + walkRange;
 
-        float xPos = Random.Range(walkBound.bounds.min.x, walkBound.bounds.max.x);
-        float zPos = Random.Range(walkBound.bounds.min.z, walkBound.bounds.max.z);
+        float xPos = Random.Range(minX, maxX);
+        float zPos = Random.Range(minZ,maxZ);
 
         return new Vector3(xPos, pos.y, zPos);
 
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(transform.position, new Vector3(walkRange, 2, walkRange));
     }
 
     public IEnumerator AngerMeter()
@@ -141,8 +150,8 @@ public class LibrarianAI : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             gameOverScreen.SetActive(true);
-            other.GetComponent<ActionBasedContinuousMoveProvider>().moveSpeed = 0;
-            other.GetComponent<ActionBasedContinuousTurnProvider>().turnSpeed = 0;
+            other.gameObject.GetComponentInChildren<ActionBasedContinuousMoveProvider>().moveSpeed = 0;
+            other.gameObject.GetComponentInChildren<ActionBasedSnapTurnProvider>().turnAmount = 0;
         }
     }
 }

@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oldPos: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
-  hidePos: {fileID: 0}
+  hidePos: {fileID: 2562738822185986908}
   enteringHideOut: 0
 --- !u!114 &1644396503775009533
 MonoBehaviour:
