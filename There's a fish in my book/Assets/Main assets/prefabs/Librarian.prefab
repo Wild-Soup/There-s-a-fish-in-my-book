@@ -50,20 +50,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idlePos: {fileID: 0}
   player: {fileID: 0}
-  anger: 10
-  maxAnger: 0
+  anger: 0
+  maxAnger: 250
   minAnger: 0
-  speed: 0.5
-  runningSpeed: 5
-  huntTime: 15
+  angerDegeradtion: 10
+  speed: 2
+  runningSpeed: 4
+  huntTime: 30
   minWalkDistance: 10
   obstacleMask:
     serializedVersion: 2
     m_Bits: 16
   walkBound: {fileID: 1035272263789104986}
-  maxViewRange: 10
+  maxViewRange: 20
   minViewRange: 0
+  gameOverScreen: {fileID: 0}
   sawHiding: 0
+  angerMeter: {fileID: 0}
+  angerTxt: {fileID: 0}
 --- !u!195 &6667476238726566857
 NavMeshAgent:
   m_ObjectHideFlags: 0

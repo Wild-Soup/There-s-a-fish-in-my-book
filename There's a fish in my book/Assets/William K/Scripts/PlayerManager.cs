@@ -17,9 +17,13 @@ public class PlayerManager : MonoBehaviour
     public bool enteringHideout;
     public GameManager gameManager;
 
-    private void OnEnable()
+    private void Start()
     {
         gameManager.StartDay();
+    }
+
+    private void OnEnable()
+    {
         hideExit.action.Enable();
 
         hideExit.action.performed += exitHide;
@@ -32,7 +36,7 @@ public class PlayerManager : MonoBehaviour
             transform.position = hidingObject.GetComponent<Hide>().oldPos;
             isHiding = false;
             idk.moveSpeed = playerSpeed;
-            //GetComponent<CharacterController>().enabled = true;
+            GetComponent<CharacterController>().enabled = true;
             GetComponent<XROrigin>().CameraYOffset = GetComponentInChildren<Scaling>().slider.GetComponent<Slider>().value;
         }
     }
@@ -42,8 +46,8 @@ public class PlayerManager : MonoBehaviour
         isHiding = true;
         hidingObject = a;
         idk.moveSpeed = 0;
-        //GetComponent<CharacterController>().enabled = false;
-        GetComponent<XROrigin>().CameraYOffset = 1;
+        GetComponent<CharacterController>().enabled = false;
+        GetComponent<XROrigin>().CameraYOffset = 0.5f;
     }
 
 }
