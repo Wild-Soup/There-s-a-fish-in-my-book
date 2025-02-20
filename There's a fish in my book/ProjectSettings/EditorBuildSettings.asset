@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/MainScene.unity
     guid: ce2df810c750c8d40b8661c2052f07a9
+  - enabled: 1
+    path: Assets/Hannes/TempMainMenu.unity
+    guid: 807809fd8800dd84fb283960b515773f
+  - enabled: 1
+    path: Assets/Hannes/scenesomething.unity
+    guid: f1d52b3b3c1ce044d87facbe806d1e6b
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 9f3ed8c91155a01419703373fdcb6e13,
       type: 2}
