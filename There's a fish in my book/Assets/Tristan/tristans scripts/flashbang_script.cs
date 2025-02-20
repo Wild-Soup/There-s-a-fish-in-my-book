@@ -15,6 +15,8 @@ public class flashbang_script : MonoBehaviour
     void Start()
     {
         main_Camera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        transform.GetChild(0).GetComponent<Canvas>().worldCamera = main_Camera;
+        OnFlashBang();
     }
 
     public void OnFlashBang()

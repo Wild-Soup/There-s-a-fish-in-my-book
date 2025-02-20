@@ -33,7 +33,6 @@ public class shader_Object_manager : MonoBehaviour
             {
                 Debug.Log("in range");
                 float distance = Vector3.Distance(transform.position, collider.transform.position);
-                Debug.Log(distance);
                 _propertyBlock.SetFloat("_Outline_thickness", Mathf.Clamp((range - distance) / thicknessModifer,0, maxthickness));
             }
 

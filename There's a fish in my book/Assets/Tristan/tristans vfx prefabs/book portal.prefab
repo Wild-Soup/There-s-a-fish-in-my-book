@@ -160,7 +160,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.308404, y: 1.996, z: 17.01868}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1982176670870295052}
@@ -184,13 +184,19 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 0.1
+      - m_Value: 0.017
         m_Name: lifetime
         m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 0, y: 0, z: 0}
+        m_Name: New Plane_position
+        m_Overridden: 1
+      - m_Value: {x: 0, y: 0, z: 0}
+        m_Name: New Plane_normal
+        m_Overridden: 1
     m_Vector4f:
       m_Array: []
     m_Uint:
@@ -206,7 +212,7 @@ VisualEffect:
       - m_Value:
           serializedVersion: 2
           key0: {r: 47.937256, g: 3.5655925, b: 0, a: 1}
-          key1: {r: 11.984314, g: 8.389774, b: 4.9568624, a: 1}
+          key1: {r: 5.992157, g: 4.194887, b: 2.4784312, a: 1}
           key2: {r: 2.981526, g: 2.9960785, b: 0, a: 0.8}
           key3: {r: 8, g: 0.9169109, b: 0, a: 0}
           key4: {r: 16, g: 0, b: 14.366623, a: 0}
@@ -214,8 +220,8 @@ VisualEffect:
           key6: {r: 0, g: 0, b: 0, a: 0}
           key7: {r: 0, g: 0, b: 0, a: 0}
           ctime0: 1157
-          ctime1: 32768
-          ctime2: 65535
+          ctime1: 65535
+          ctime2: 60138
           ctime3: 42405
           ctime4: 53585
           ctime5: 65535
@@ -231,7 +237,7 @@ VisualEffect:
           atime7: 0
           m_Mode: 0
           m_ColorSpace: 1
-          m_NumColorKeys: 3
+          m_NumColorKeys: 2
           m_NumAlphaKeys: 2
         m_Name: New Gradient
         m_Overridden: 1
