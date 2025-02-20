@@ -60,7 +60,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &8088020093889971329
 MonoBehaviour:
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_IsGlobal: 1
   priority: 0
   blendDistance: 0
-  weight: 1
+  weight: 0
   sharedProfile: {fileID: 11400000, guid: 971614498132f3943bdf6f4ada7abd93, type: 2}
 --- !u!95 &4781952163506138390
 Animator:

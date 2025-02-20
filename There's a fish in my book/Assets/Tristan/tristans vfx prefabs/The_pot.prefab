@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8257290914754018992}
   - component: {fileID: 4277438774542833531}
   - component: {fileID: 6742498270113928136}
+  - component: {fileID: 460931892970353602}
   m_Layer: 0
   m_Name: polySurface5
   m_TagString: Untagged
@@ -65,6 +66,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 5561349426305759274, guid: c2d34bd66c44cbf488abc7f1f3fb2038, type: 3}
+  - {fileID: 2100000, guid: bcf08a964d571574d975aef15b997bca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -287,6 +289,22 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &460931892970353602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576053801708790479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d05667e5d7eaac498b22c21f53a22d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: hand
+  range: 2
+  thicknessModifer: 10
+  maxthickness: 0.025
 --- !u!1 &4167185038023670912
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +319,7 @@ GameObject:
   - component: {fileID: 8775805795987732126}
   - component: {fileID: 4456547310559413039}
   - component: {fileID: 8936716645584002088}
+  - component: {fileID: 6710894259650182759}
   m_Layer: 0
   m_Name: polySurface11
   m_TagString: Untagged
@@ -352,6 +371,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 5561349426305759274, guid: c2d34bd66c44cbf488abc7f1f3fb2038, type: 3}
+  - {fileID: 2100000, guid: bcf08a964d571574d975aef15b997bca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -574,6 +594,22 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &6710894259650182759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4167185038023670912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d05667e5d7eaac498b22c21f53a22d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: hand
+  range: 2
+  thicknessModifer: 10
+  maxthickness: 0.025
 --- !u!1 &4238404221496075690
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,6 +624,7 @@ GameObject:
   - component: {fileID: 7587882812988508907}
   - component: {fileID: 1726344286842755727}
   - component: {fileID: 8942014409046280256}
+  - component: {fileID: 7531230858851308399}
   m_Layer: 0
   m_Name: polySurface31
   m_TagString: Untagged
@@ -639,6 +676,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 5561349426305759274, guid: c2d34bd66c44cbf488abc7f1f3fb2038, type: 3}
+  - {fileID: 2100000, guid: bcf08a964d571574d975aef15b997bca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -861,6 +899,22 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &7531230858851308399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4238404221496075690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d05667e5d7eaac498b22c21f53a22d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: hand
+  range: 2
+  thicknessModifer: 10
+  maxthickness: 0.025
 --- !u!1 &4434709594862453780
 GameObject:
   m_ObjectHideFlags: 0
@@ -5763,6 +5817,7 @@ GameObject:
   - component: {fileID: 2627223784084102161}
   - component: {fileID: 4878022127994395570}
   - component: {fileID: 6581626832217790228}
+  - component: {fileID: 4715924905792719126}
   m_Layer: 0
   m_Name: polySurface25
   m_TagString: Untagged
@@ -5814,6 +5869,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 5561349426305759274, guid: c2d34bd66c44cbf488abc7f1f3fb2038, type: 3}
+  - {fileID: 2100000, guid: bcf08a964d571574d975aef15b997bca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6036,6 +6092,22 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &4715924905792719126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4960843084640847619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d05667e5d7eaac498b22c21f53a22d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: hand
+  range: 2
+  thicknessModifer: 10
+  maxthickness: 0.025
 --- !u!1 &4992280112451289970
 GameObject:
   m_ObjectHideFlags: 0
@@ -6050,6 +6122,7 @@ GameObject:
   - component: {fileID: 5643903101087071040}
   - component: {fileID: 661588174423897762}
   - component: {fileID: 3168605878776551238}
+  - component: {fileID: 5186723275906132103}
   m_Layer: 0
   m_Name: polySurface17
   m_TagString: Untagged
@@ -6101,6 +6174,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 5561349426305759274, guid: c2d34bd66c44cbf488abc7f1f3fb2038, type: 3}
+  - {fileID: 2100000, guid: bcf08a964d571574d975aef15b997bca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6323,6 +6397,22 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &5186723275906132103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4992280112451289970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d05667e5d7eaac498b22c21f53a22d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: hand
+  range: 2
+  thicknessModifer: 10
+  maxthickness: 0.025
 --- !u!1 &5157580270948146712
 GameObject:
   m_ObjectHideFlags: 0
@@ -6337,6 +6427,7 @@ GameObject:
   - component: {fileID: 6865171593205286936}
   - component: {fileID: 8422031733687508422}
   - component: {fileID: 2116130228329189568}
+  - component: {fileID: 1929595198991106725}
   m_Layer: 0
   m_Name: polySurface19
   m_TagString: Untagged
@@ -6388,6 +6479,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 5561349426305759274, guid: c2d34bd66c44cbf488abc7f1f3fb2038, type: 3}
+  - {fileID: 2100000, guid: bcf08a964d571574d975aef15b997bca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6610,6 +6702,22 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &1929595198991106725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5157580270948146712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d05667e5d7eaac498b22c21f53a22d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: hand
+  range: 2
+  thicknessModifer: 10
+  maxthickness: 0.025
 --- !u!1 &5750931309973376835
 GameObject:
   m_ObjectHideFlags: 0
@@ -6624,6 +6732,7 @@ GameObject:
   - component: {fileID: 6379046528019523303}
   - component: {fileID: 3209286818184255736}
   - component: {fileID: 7149010027487481313}
+  - component: {fileID: 608861063204693346}
   m_Layer: 0
   m_Name: polySurface4
   m_TagString: Untagged
@@ -6675,6 +6784,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 5561349426305759274, guid: c2d34bd66c44cbf488abc7f1f3fb2038, type: 3}
+  - {fileID: 2100000, guid: bcf08a964d571574d975aef15b997bca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6897,6 +7007,22 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &608861063204693346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5750931309973376835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d05667e5d7eaac498b22c21f53a22d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: hand
+  range: 2
+  thicknessModifer: 10
+  maxthickness: 0.025
 --- !u!1 &5880115395974414239
 GameObject:
   m_ObjectHideFlags: 0
@@ -6911,6 +7037,7 @@ GameObject:
   - component: {fileID: 3911923743148487316}
   - component: {fileID: 5404305402700102993}
   - component: {fileID: 1195317740353700658}
+  - component: {fileID: 1717728139877303039}
   m_Layer: 0
   m_Name: polySurface2
   m_TagString: Untagged
@@ -6962,6 +7089,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 5561349426305759274, guid: c2d34bd66c44cbf488abc7f1f3fb2038, type: 3}
+  - {fileID: 2100000, guid: bcf08a964d571574d975aef15b997bca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7184,6 +7312,22 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &1717728139877303039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5880115395974414239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d05667e5d7eaac498b22c21f53a22d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: hand
+  range: 2
+  thicknessModifer: 10
+  maxthickness: 0.025
 --- !u!1 &6039446890252501768
 GameObject:
   m_ObjectHideFlags: 0
@@ -7198,6 +7342,7 @@ GameObject:
   - component: {fileID: 5441688601528506703}
   - component: {fileID: 6821827189611382068}
   - component: {fileID: 2206063295472426012}
+  - component: {fileID: 2141715067092443213}
   m_Layer: 0
   m_Name: polySurface41
   m_TagString: Untagged
@@ -7249,6 +7394,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 5561349426305759274, guid: c2d34bd66c44cbf488abc7f1f3fb2038, type: 3}
+  - {fileID: 2100000, guid: bcf08a964d571574d975aef15b997bca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7471,6 +7617,22 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &2141715067092443213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6039446890252501768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d05667e5d7eaac498b22c21f53a22d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: hand
+  range: 2
+  thicknessModifer: 10
+  maxthickness: 0.025
 --- !u!1 &6180119637824150042
 GameObject:
   m_ObjectHideFlags: 0
@@ -7485,6 +7647,7 @@ GameObject:
   - component: {fileID: 1350686975331356085}
   - component: {fileID: 222249294827657091}
   - component: {fileID: 4270895883729143061}
+  - component: {fileID: 8662967964924302904}
   m_Layer: 0
   m_Name: polySurface7
   m_TagString: Untagged
@@ -7536,6 +7699,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 5561349426305759274, guid: c2d34bd66c44cbf488abc7f1f3fb2038, type: 3}
+  - {fileID: 2100000, guid: bcf08a964d571574d975aef15b997bca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7758,6 +7922,22 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &8662967964924302904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6180119637824150042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d05667e5d7eaac498b22c21f53a22d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: hand
+  range: 2
+  thicknessModifer: 10
+  maxthickness: 0.025
 --- !u!1 &6182451780344090359
 GameObject:
   m_ObjectHideFlags: 0
@@ -7772,6 +7952,7 @@ GameObject:
   - component: {fileID: 87478779573279663}
   - component: {fileID: 7341359348809814358}
   - component: {fileID: 5550416378906993830}
+  - component: {fileID: 3917239954944650534}
   m_Layer: 0
   m_Name: polySurface35
   m_TagString: Untagged
@@ -7823,6 +8004,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 5561349426305759274, guid: c2d34bd66c44cbf488abc7f1f3fb2038, type: 3}
+  - {fileID: 2100000, guid: bcf08a964d571574d975aef15b997bca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8045,6 +8227,22 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &3917239954944650534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6182451780344090359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d05667e5d7eaac498b22c21f53a22d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: hand
+  range: 2
+  thicknessModifer: 10
+  maxthickness: 0.025
 --- !u!1 &7103164818194177981
 GameObject:
   m_ObjectHideFlags: 0
@@ -8059,6 +8257,7 @@ GameObject:
   - component: {fileID: 3619339421880873832}
   - component: {fileID: 6651856184759935345}
   - component: {fileID: 2022774323035155422}
+  - component: {fileID: 4344344404185663401}
   m_Layer: 0
   m_Name: polySurface22
   m_TagString: Untagged
@@ -8110,6 +8309,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 5561349426305759274, guid: c2d34bd66c44cbf488abc7f1f3fb2038, type: 3}
+  - {fileID: 2100000, guid: bcf08a964d571574d975aef15b997bca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8332,6 +8532,22 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &4344344404185663401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7103164818194177981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d05667e5d7eaac498b22c21f53a22d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: hand
+  range: 2
+  thicknessModifer: 10
+  maxthickness: 0.025
 --- !u!1 &7255352394532719278
 GameObject:
   m_ObjectHideFlags: 0
@@ -8346,6 +8562,7 @@ GameObject:
   - component: {fileID: 7237523207882100565}
   - component: {fileID: 7298146290515008885}
   - component: {fileID: 3360007624819464263}
+  - component: {fileID: 4921117962918899963}
   m_Layer: 0
   m_Name: polySurface39
   m_TagString: Untagged
@@ -8397,6 +8614,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 5561349426305759274, guid: c2d34bd66c44cbf488abc7f1f3fb2038, type: 3}
+  - {fileID: 2100000, guid: bcf08a964d571574d975aef15b997bca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8619,6 +8837,22 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &4921117962918899963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7255352394532719278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d05667e5d7eaac498b22c21f53a22d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: hand
+  range: 2
+  thicknessModifer: 10
+  maxthickness: 0.025
 --- !u!1 &7935538492735395405
 GameObject:
   m_ObjectHideFlags: 0
@@ -8679,6 +8913,7 @@ GameObject:
   - component: {fileID: 8135441214044178463}
   - component: {fileID: 577151433239087138}
   - component: {fileID: 7518349334532131335}
+  - component: {fileID: 9126738740013727941}
   m_Layer: 0
   m_Name: polySurface18
   m_TagString: Untagged
@@ -8730,6 +8965,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 5561349426305759274, guid: c2d34bd66c44cbf488abc7f1f3fb2038, type: 3}
+  - {fileID: 2100000, guid: bcf08a964d571574d975aef15b997bca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8952,6 +9188,22 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &9126738740013727941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7985662349274508902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d05667e5d7eaac498b22c21f53a22d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: hand
+  range: 2
+  thicknessModifer: 10
+  maxthickness: 0.025
 --- !u!1 &8133294274403128814
 GameObject:
   m_ObjectHideFlags: 0
@@ -8966,6 +9218,7 @@ GameObject:
   - component: {fileID: 2333975867851823944}
   - component: {fileID: 257051042680588655}
   - component: {fileID: 529069918618830832}
+  - component: {fileID: 5811678754983932603}
   m_Layer: 0
   m_Name: polySurface28
   m_TagString: Untagged
@@ -9017,6 +9270,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 5561349426305759274, guid: c2d34bd66c44cbf488abc7f1f3fb2038, type: 3}
+  - {fileID: 2100000, guid: bcf08a964d571574d975aef15b997bca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9239,6 +9493,22 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &5811678754983932603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8133294274403128814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d05667e5d7eaac498b22c21f53a22d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: hand
+  range: 2
+  thicknessModifer: 10
+  maxthickness: 0.025
 --- !u!1001 &6750224876873174413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9265,17 +9535,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a2990945a9f93b3448ff4a8b84080a27,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.184
+      value: 8.772
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2990945a9f93b3448ff4a8b84080a27,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.73
+      value: -0.106
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2990945a9f93b3448ff4a8b84080a27,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.78
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2990945a9f93b3448ff4a8b84080a27,
         type: 3}
@@ -9317,6 +9587,16 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a2990945a9f93b3448ff4a8b84080a27,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a2990945a9f93b3448ff4a8b84080a27,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bcf08a964d571574d975aef15b997bca, type: 2}
     - target: {fileID: 919132149155446097, guid: a2990945a9f93b3448ff4a8b84080a27,
         type: 3}
       propertyPath: m_Name
@@ -9355,6 +9635,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5982091647241823700}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a2990945a9f93b3448ff4a8b84080a27,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7809549967307334898}
   m_SourcePrefab: {fileID: 100100000, guid: a2990945a9f93b3448ff4a8b84080a27, type: 3}
 --- !u!1 &5867332776999186652 stripped
 GameObject:
@@ -9580,6 +9864,22 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &7809549967307334898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5867332776999186652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d05667e5d7eaac498b22c21f53a22d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: hand
+  range: 2
+  thicknessModifer: 10
+  maxthickness: 0.025
 --- !u!4 &6496201392858507878 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a2990945a9f93b3448ff4a8b84080a27,
