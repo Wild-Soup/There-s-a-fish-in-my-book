@@ -75,6 +75,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4367081184901658842, guid: 0030c8251cfc6a747b4ecaacc01b92ae,
         type: 3}
+      propertyPath: LightsModule.light
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367081184901658842, guid: 0030c8251cfc6a747b4ecaacc01b92ae,
+        type: 3}
       propertyPath: ColorModule.enabled
       value: 0
       objectReference: {fileID: 0}
@@ -219,7 +224,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5752727982200995153, guid: 0030c8251cfc6a747b4ecaacc01b92ae, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0030c8251cfc6a747b4ecaacc01b92ae, type: 3}
