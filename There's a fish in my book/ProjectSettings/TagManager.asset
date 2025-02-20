@@ -6,6 +6,7 @@ TagManager:
   tags:
   - hand
   - Book
+  - BookPos
   layers:
   - Default
   - TransparentFX

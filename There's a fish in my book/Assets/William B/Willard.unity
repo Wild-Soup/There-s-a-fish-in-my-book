@@ -803,7 +803,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 84f78630a80075a48a5a7de9f9b00295, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 4326761367364227236, guid: 75c9b6bcc65f3114496015352037bbc1,
         type: 3}
       propertyPath: m_PlayOnAwake
@@ -814,6 +814,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.892
       objectReference: {fileID: 0}
+    - target: {fileID: 7814739265013514511, guid: 75c9b6bcc65f3114496015352037bbc1,
+        type: 3}
+      propertyPath: sounds.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7814739265013514511, guid: 75c9b6bcc65f3114496015352037bbc1,
+        type: 3}
+      propertyPath: sounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 38ff7b093fa97db4da6f7bf1c2391620, type: 3}
     - target: {fileID: 8363089938056872622, guid: 75c9b6bcc65f3114496015352037bbc1,
         type: 3}
       propertyPath: m_fontSize

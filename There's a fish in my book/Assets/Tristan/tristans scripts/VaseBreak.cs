@@ -27,9 +27,7 @@ public class VaseBreak : MonoBehaviour
     public void BreakPot()
     {
         pot.GetComponent<MeshCollider>().enabled = false;
-        rb.constraints = RigidbodyConstraints.FreezePositionY |
-                         RigidbodyConstraints.FreezeRotationX |
-                         RigidbodyConstraints.FreezeRotationZ;
+        rb.constraints = RigidbodyConstraints.FreezeAll;
         pot.GetComponent<MeshRenderer>().enabled = false;
         brokenPot.SetActive(true);
         if (Smoke != null)
@@ -39,7 +37,11 @@ public class VaseBreak : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (velocity > breakPoint || collision.rigidbody.velocity.magnitude > breakPoint)
+        if (velocity > breakPoint)
+        {
+            BreakPot();
+        }
+        else if(collision.rigidbody != null && collision.rigidbody.velocity.magnitude > breakPoint)
         {
             BreakPot();
         }
