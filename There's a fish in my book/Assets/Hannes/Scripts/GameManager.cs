@@ -8,11 +8,14 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    [SerializeField] private Transform librarienSpawnPosition;
+    [SerializeField] private Transform playerSpawnPosition;
     // the prefab for the books
     [SerializeField] private GameObject bookPrefab;
     // time and game progression
@@ -33,7 +36,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Color[] colors;
     [SerializeField] private UnityEvent[] possibleEvents;
 
-    private GameObject gameOverPanel = null;
+    [SerializeField]private GameObject gameOverPanel = null;
 
 
     // Start is called before the first frame update
@@ -53,6 +56,12 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
+
+        if (time >= 300f)
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<ActionBasedContinuousMoveProvider>().moveSpeed = 0;
+            gameOverPanel.SetActive(true);
+        }
     }
 
     public int Score
@@ -67,6 +76,9 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void StartDay()
     {
+        GameObject.FindGameObjectWithTag("Player").transform.position = playerSpawnPosition.position;
+        GameObject.FindGameObjectWithTag("Librarian").transform.position = librarienSpawnPosition.position;
+
         // destroys all books if they already exist
         for (int i = 0; i < generatedBooks.Length; i++)
             if (generatedBooks[i] != null)
@@ -202,11 +214,6 @@ public class GameManager : MonoBehaviour
     {
         day++;
         StartDay();
-    }
-
-    public void GameOver()
-    {
-        gameOverPanel.SetActive(true);
     }
     /// <summary>
     /// Scans a book and updates all the related values

@@ -13,7 +13,7 @@ public class SoundIntensityController : MonoBehaviour
 
     // References
     private Rigidbody rb;
-    private AudioSource source;
+    [SerializeField]private AudioSource source;
 
     [Tooltip("")]
     [SerializeField] private List<AudioClip> sounds = new List<AudioClip>();
@@ -25,7 +25,7 @@ public class SoundIntensityController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        source = GetComponent<AudioSource>();
+        //source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

@@ -7,6 +7,8 @@ using UnityEngine;
 public class GameManagerEditor : Editor
 {
     private SerializedProperty bookPrefab;
+    private SerializedProperty librarienSpawnPosition;
+    private SerializedProperty playerSpawnPosition;
     private SerializedProperty day;
     private SerializedProperty time;
     private SerializedProperty nrBooks;
@@ -36,6 +38,8 @@ public class GameManagerEditor : Editor
     private void OnEnable()
     {
         bookPrefab = serializedObject.FindProperty("bookPrefab");
+        librarienSpawnPosition = serializedObject.FindProperty("librarienSpawnPosition");
+        playerSpawnPosition = serializedObject.FindProperty("playerSpawnPosition");
         day = serializedObject.FindProperty("day");
         days = serializedObject.FindProperty("days");
         time = serializedObject.FindProperty("time");
@@ -60,6 +64,10 @@ public class GameManagerEditor : Editor
         if (bookPrefab.boxedValue == null)
             EditorGUILayout.HelpBox("This script needs a book prefab", MessageType.Error);
         EditorGUILayout.PropertyField(bookPrefab, new GUIContent("Book prefab"));
+
+        EditorGUILayout.PropertyField(librarienSpawnPosition, new GUIContent("Librarian Spawn Pos"));
+        EditorGUILayout.PropertyField(playerSpawnPosition, new GUIContent("Player Spawn Pos"));
+        EditorGUILayout.PropertyField(gameOverPanel, new GUIContent("Game Over Panel"));
 
         timeDropDown = EditorGUILayout.Foldout(timeDropDown, "Progression");
 
@@ -155,9 +163,6 @@ public class GameManagerEditor : Editor
             instance.StartDay();
         if (GUILayout.Button("End Day") && Application.isPlaying)
             instance.EndDay();
-        if (GUILayout.Button("GameOver") && Application.isPlaying)
-            instance.GameOver();
-
 
         serializedObject.ApplyModifiedProperties();
     }
