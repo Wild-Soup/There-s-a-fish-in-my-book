@@ -7,6 +7,7 @@ using UnityEngine;
 public class GameManagerEditor : Editor
 {
     private SerializedProperty bookPrefab;
+    private SerializedProperty objectiveText;
     private SerializedProperty librarienSpawnPosition;
     private SerializedProperty playerSpawnPosition;
     private SerializedProperty day;
@@ -38,6 +39,7 @@ public class GameManagerEditor : Editor
     private void OnEnable()
     {
         bookPrefab = serializedObject.FindProperty("bookPrefab");
+        objectiveText = serializedObject.FindProperty("objectiveText");
         librarienSpawnPosition = serializedObject.FindProperty("librarienSpawnPosition");
         playerSpawnPosition = serializedObject.FindProperty("playerSpawnPosition");
         day = serializedObject.FindProperty("day");
@@ -66,6 +68,7 @@ public class GameManagerEditor : Editor
         EditorGUILayout.PropertyField(bookPrefab, new GUIContent("Book prefab"));
 
         EditorGUILayout.PropertyField(librarienSpawnPosition, new GUIContent("Librarian Spawn Pos"));
+        EditorGUILayout.PropertyField(objectiveText, new GUIContent("Object Text"));
         EditorGUILayout.PropertyField(playerSpawnPosition, new GUIContent("Player Spawn Pos"));
         EditorGUILayout.PropertyField(gameOverPanel, new GUIContent("Game Over Panel"));
 

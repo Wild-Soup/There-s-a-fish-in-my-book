@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Transform librarienSpawnPosition;
     [SerializeField] private Transform playerSpawnPosition;
+    [SerializeField] private TextMeshProUGUI objectiveText;
     // the prefab for the books
     [SerializeField] private GameObject bookPrefab;
     // time and game progression
@@ -34,7 +35,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private string[] authorName;
     [SerializeField] private Sprite[] genres;
     [SerializeField] private Color[] colors;
-    [SerializeField] private UnityEvent[] possibleEvents;
+    [SerializeField] private GameObject[] possibleEvents;
 
     [SerializeField]private GameObject gameOverPanel = null;
 
@@ -84,14 +85,20 @@ public class GameManager : MonoBehaviour
             if (generatedBooks[i] != null)
                 Destroy(generatedBooks[i].gameObject);
 
+        generatedBooks = new Book[0];
         // generates books
         SetBooks();;
 
         List<GameObject> positions = GameObject.FindGameObjectsWithTag("BookPos").ToList();
 
+        objectiveText.text = "";
+
         // places all the books around the library
         foreach (Book book in generatedBooks)
         {
+            if (correctBooks.Contains(book))
+                objectiveText.text += $"{book.title.text} by {book.author.text}\n";
+
             // gets a random position
             int index = Random.Range(0, positions.Count);
             // sets the books position and rotation to the randomized position and rotation
@@ -152,6 +159,8 @@ public class GameManager : MonoBehaviour
                 genres[Random.Range(0, genres.Length)], // all possible generes
                 colors[Random.Range(0, colors.Length)]); // all possible colors
 
+            generatedBooks[booksCount + i].GetComponent<VFXManager>().SetVFX(possibleEvents[Random.Range(0, possibleEvents.Length)]);
+
             // removes this books title from the available titles
             availableTitles.Remove(generatedBooks[i].title.text);
         }
@@ -169,7 +178,7 @@ public class GameManager : MonoBehaviour
     /// <returns>returns the new book</returns>
     private Book CloneBook(Book original)
     {
-        List<List<char>> letterarray = new List<List<char>> { "abcdefghijklmnopqrstuvwxyzåäöABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ ".ToCharArray().ToList(), "edgpatqnlijwmubofcyhkrvszxäåoHDGBFECATLXJNMQROPZIWYUKVSÄÅO-".ToCharArray().ToList() };
+        List<List<char>> letterarray = new List<List<char>> { "abcdefghijklmnopqrstuvwxyzåäöABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ".ToCharArray().ToList(), "edgpatqnlijwmubofcyhkrvszxäåoHDGBFECATLXJNMQROPZIWYUKVSÄÅO".ToCharArray().ToList() };
         // a list with all letters of the
         char[] title = original.title.text.ToCharArray();
         // a list with all letters of the author
@@ -190,7 +199,7 @@ public class GameManager : MonoBehaviour
             {
                 currentIndex = Random.Range(0, title.Length + author.Length);
             }
-            while (changedIndex.Contains(currentIndex));
+            while (changedIndex.Contains(currentIndex) && letterarray[0].Contains(author[currentIndex]));
             // sets the letter att the current index to a coresponding letter in the letterarray
             if (currentIndex >= title.Length)
                 author[currentIndex - title.Length] = letterarray[1][letterarray[0].FindIndex(x => x == author[currentIndex - title.Length])];

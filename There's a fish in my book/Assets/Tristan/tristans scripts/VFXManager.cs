@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class VFXManager : MonoBehaviour
 {
-    public List<GameObject> VFX;
-    public void OpenBookTrigger(int index)
+    public GameObject VFX;
+    public GameObject spawnedObject;
+    public void OpenBookTrigger(Transform parent)
     {
-        Instantiate(VFX[index]);
+        spawnedObject = Instantiate(VFX, parent);
     }
 
-    public void CloseBookTrigger(GameObject toDestroy)
+    public void CloseBookTrigger()
     {
-        Destroy(toDestroy);
+        Destroy(spawnedObject);
+    }
+
+    public void SetVFX(GameObject vfx)
+    {
+        VFX = vfx;
     }
 }
