@@ -221,8 +221,15 @@ public class GameManager : MonoBehaviour
     }
     public void EndDay()
     {
-        day++;
-        StartDay();
+        if (nrCorrectBooks == correctBooks.Length)
+        {
+            day++;
+            StartDay();
+        }
+        else
+        {
+            MessegeManager.instance.ActivateText("Finish your tasks first");
+        }
     }
     /// <summary>
     /// Scans a book and updates all the related values
