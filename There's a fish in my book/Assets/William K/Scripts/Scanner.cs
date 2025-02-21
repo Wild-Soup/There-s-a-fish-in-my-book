@@ -58,7 +58,7 @@ public class Scanner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Book"))
+        if (other.CompareTag("Book") && other.gameObject.GetComponent<Book>().isBookOpen)
         {
             bool isCorrect = GameManager.instance.ScanBook(other.GetComponent<Book>());
 
