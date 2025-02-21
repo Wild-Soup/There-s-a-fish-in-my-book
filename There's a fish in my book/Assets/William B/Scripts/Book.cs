@@ -83,7 +83,7 @@ public class Book : MonoBehaviour
         GetComponent<MeshFilter>().mesh = openMesh;
         title.enabled = false;
         author.enabled = false;
-        GameObject.FindAnyObjectByType<VFXManager>().OpenBookTrigger(transform.gameObject.transform);
+        GetComponent<VFXManager>().OpenBookTrigger(transform.gameObject.transform);
     }
 
     public void OnClose()
@@ -91,7 +91,7 @@ public class Book : MonoBehaviour
         GetComponent<MeshFilter>().mesh = closedMesh;
         title.enabled = true;
         author.enabled = true;
-        GameObject.FindAnyObjectByType<VFXManager>().CloseBookTrigger();
+        GetComponent<VFXManager>().CloseBookTrigger();
     }
 
 }
