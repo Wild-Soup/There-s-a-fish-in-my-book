@@ -7,6 +7,7 @@ using UnityEngine;
 public class GameManagerEditor : Editor
 {
     private SerializedProperty bookPrefab;
+    private SerializedProperty fadeInpanel;
     private SerializedProperty objectiveText;
     private SerializedProperty librarienSpawnPosition;
     private SerializedProperty playerSpawnPosition;
@@ -165,7 +166,7 @@ public class GameManagerEditor : Editor
         if (GUILayout.Button("Start Day") && Application.isPlaying)
             instance.StartDay();
         if (GUILayout.Button("End Day") && Application.isPlaying)
-            instance.EndDay();
+            instance.EndDay(true);
 
         serializedObject.ApplyModifiedProperties();
     }

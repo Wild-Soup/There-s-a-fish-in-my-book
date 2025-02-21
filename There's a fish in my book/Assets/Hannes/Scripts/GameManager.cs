@@ -1,13 +1,9 @@
+using System.Collections;
 using System.Collections.Generic;
-using System.IO.Compression;
 using System.Linq;
 using TMPro;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.SceneManagement;
-using UnityEngine.Tilemaps;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class GameManager : MonoBehaviour
@@ -49,7 +45,7 @@ public class GameManager : MonoBehaviour
         else if (instance != this)
             Destroy(this);
 
-        DontDestroyOnLoad(instance.gameObject);
+        //DontDestroyOnLoad(instance.gameObject);
 
         StartDay();
     }
@@ -178,7 +174,7 @@ public class GameManager : MonoBehaviour
     /// <returns>returns the new book</returns>
     private Book CloneBook(Book original)
     {
-        List<List<char>> letterarray = new List<List<char>> { "abcdefghijklmnopqrstuvwxyzåäöABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ".ToCharArray().ToList(), "edgpatqnlijwmubofcyhkrvszxäåoHDGBFECATLXJNMQROPZIWYUKVSÄÅO".ToCharArray().ToList() };
+        List<List<char>> letterarray = new List<List<char>> { "abcdefghijklmnopqrstuvwxyzåäöABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ .,".ToCharArray().ToList(), "edgpatqnlijwmubofcyhkrvszxäåoHDGBFECATLXJNMQROPZIWYUKVSÄÅO-,.".ToCharArray().ToList() };
         // a list with all letters of the
         char[] title = original.title.text.ToCharArray();
         // a list with all letters of the author
@@ -219,15 +215,46 @@ public class GameManager : MonoBehaviour
         // returns the new cloned book
         return newBook;
     }
-    public bool EndDay()
+    public bool EndDay(bool overrride = false)
     {
-        if (nrCorrectBooks == correctBooks.Length)
+        if (nrCorrectBooks == correctBooks.Length || overrride)
         {
             day++;
-            StartDay();
+            StartCoroutine(FadeinFadeOut(1f));
             return true;
         }
         return false;
+    }
+
+    private IEnumerator FadeinFadeOut(float time)
+    {
+        Image panel = transform.GetChild(0).GetComponentInChildren<Image>();
+
+        float time1 = 0;
+
+        while (time1 < time)
+        {
+            panel.color = new Color(0f, 0f, 0f, time1 / time);
+
+            time1 += Time.deltaTime;
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        StartDay();
+        yield return new WaitForSeconds(1f);
+
+        time1 = 1;
+
+        while (time1 > 0)
+        {
+            panel.color = new Color(0f, 0f, 0f, time1 / time);
+
+            time1 -= Time.deltaTime;
+
+            yield return new WaitForEndOfFrame();
+        }
+
     }
     /// <summary>
     /// Scans a book and updates all the related values
