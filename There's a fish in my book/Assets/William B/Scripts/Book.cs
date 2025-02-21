@@ -22,7 +22,8 @@ public class Book : MonoBehaviour
     [SerializeField] UnityEvent onOpenEvents;
 
     public InputActionReference openInput;
-
+    public Mesh openMesh;
+    public Mesh closedMesh;
     // Function-like
     public bool IsOpen
     {
@@ -49,9 +50,9 @@ public class Book : MonoBehaviour
 
     private void OnEnable()
     {
-        openInput.action.Enable();
+        //openInput.action.Enable();
 
-        openInput.action.performed += OpenBook;
+        //openInput.action.performed += OpenBook;
     }
 
     public void OpenBook(InputAction.CallbackContext ctx)
@@ -79,5 +80,18 @@ public class Book : MonoBehaviour
     /// </summary>
     public void OnOpen()
     {
+        GetComponent<MeshFilter>().mesh = openMesh;
+        title.enabled = false;
+        author.enabled = false;
+        GameObject.FindAnyObjectByType<VFXManager>().OpenBookTrigger(transform.gameObject.transform);
     }
+
+    public void OnClose()
+    {
+        GetComponent<MeshFilter>().mesh = closedMesh;
+        title.enabled = true;
+        author.enabled = true;
+        GameObject.FindAnyObjectByType<VFXManager>().CloseBookTrigger();
+    }
+
 }

@@ -521,6 +521,10 @@ MonoBehaviour:
       m_Calls: []
   openInput: {fileID: 4191486005080032008, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
+  openMesh: {fileID: 3925360246919112806, guid: fed17fccce326934b9775b8451e73e5a,
+    type: 3}
+  closedMesh: {fileID: -5741174448488666723, guid: d2a7511803d7c2d4c95236fe695e758b,
+    type: 3}
 --- !u!114 &7814739265013514511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -786,10 +790,34 @@ MonoBehaviour:
       m_Calls: []
   m_Activated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1875994404839616408}
+        m_TargetAssemblyTypeName: Book, Assembly-CSharp
+        m_MethodName: OnOpen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_Deactivated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1875994404839616408}
+        m_TargetAssemblyTypeName: Book, Assembly-CSharp
+        m_MethodName: OnClose
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
