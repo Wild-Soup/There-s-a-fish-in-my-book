@@ -24,6 +24,7 @@ public class Book : MonoBehaviour
     public InputActionReference openInput;
     public Mesh openMesh;
     public Mesh closedMesh;
+    public bool isBookOpen;
     // Function-like
     public bool IsOpen
     {
@@ -84,6 +85,7 @@ public class Book : MonoBehaviour
         title.enabled = false;
         author.enabled = false;
         GetComponent<VFXManager>().OpenBookTrigger(transform.gameObject.transform);
+        isBookOpen = true;
     }
 
     public void OnClose()
@@ -92,6 +94,7 @@ public class Book : MonoBehaviour
         title.enabled = true;
         author.enabled = true;
         GetComponent<VFXManager>().CloseBookTrigger();
+        isBookOpen = false;
     }
 
 }
