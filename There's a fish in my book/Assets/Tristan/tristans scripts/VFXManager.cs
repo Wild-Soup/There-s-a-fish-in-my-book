@@ -9,7 +9,15 @@ public class VFXManager : MonoBehaviour
     public void OpenBookTrigger(Transform parent)
     {
         if (VFX != null)
+        {
             spawnedObject = Instantiate(VFX, parent);
+
+            Transform lib = GameObject.FindAnyObjectByType<LibrarianAI>().transform;
+
+            float distance = Vector3.Distance(transform.position, lib.position);
+
+            lib.GetComponent<LibrarianAI>().IncreaseAnger(50f);
+        }
     }
 
     public void CloseBookTrigger()
