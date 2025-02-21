@@ -17,7 +17,8 @@ public class Scanner : MonoBehaviour
 
     public Material redScan;
     public Material greenScan;
-    public AudioSource source;
+    public AudioSource susccessSource;
+    public AudioSource failedSource;
 
     public void OnEnable()
     {
@@ -69,11 +70,12 @@ public class Scanner : MonoBehaviour
             if (isCorrect)
             {
                 scannerEffect.GetComponent<MeshRenderer>().material.color = greenScan.color;
-                source.Play();
+                susccessSource.Play();
                 StartCoroutine(ScanColorChange());
             }
             else
             {
+                failedSource.Play();
                 librarian.IncreaseAnger(angerIncrease);
             }
         }
