@@ -15,6 +15,10 @@ public class Scanner : MonoBehaviour
     public InputActionReference librarianAngerButton;
     public InputActionReference scannerButton;
 
+    public Material redScan;
+    public Material greenScan;
+    public AudioSource source;
+
     public void OnEnable()
     {
         librarianAngerButton.action.Enable();
@@ -58,20 +62,28 @@ public class Scanner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Book") && other.gameObject.GetComponent<Book>().isBookOpen)
+        if (other.CompareTag("Book") && other.GetComponent<Book>().isBookOpen)
         {
             bool isCorrect = GameManager.instance.ScanBook(other.GetComponent<Book>());
 
             if (isCorrect)
             {
-                
+                scannerEffect.GetComponent<MeshRenderer>().material.color = greenScan.color;
+                source.Play();
+                StartCoroutine(ScanColorChange());
             }
             else
             {
                 librarian.IncreaseAnger(angerIncrease);
             }
-
         }
+
+    }
+
+    public IEnumerator ScanColorChange()
+    {
+        yield return new WaitForSeconds(0.5f);
+        scannerEffect.GetComponent<MeshRenderer>().material.color = redScan.color;
     }
 
 }

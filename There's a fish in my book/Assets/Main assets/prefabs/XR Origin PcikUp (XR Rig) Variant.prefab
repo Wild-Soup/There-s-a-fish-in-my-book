@@ -414,6 +414,9 @@ MonoBehaviour:
     type: 3}
   scannerButton: {fileID: -3029501263471662001, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
+  redScan: {fileID: 0}
+  greenScan: {fileID: 0}
+  source: {fileID: 0}
 --- !u!1 &4327547542935689785
 GameObject:
   m_ObjectHideFlags: 0

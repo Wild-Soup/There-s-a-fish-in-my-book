@@ -19,7 +19,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
-        gameManager.StartDay();
+
     }
 
     private void OnEnable()
@@ -37,7 +37,7 @@ public class PlayerManager : MonoBehaviour
             isHiding = false;
             idk.moveSpeed = playerSpeed;
             GetComponent<CharacterController>().enabled = true;
-            GetComponent<XROrigin>().CameraYOffset = GetComponentInChildren<Scaling>().slider.GetComponent<Slider>().value;
+            GetComponent<XROrigin>().CameraYOffset = GetComponentInChildren<Scaling>().slider.GetComponent<Slider>().value / 1.5f;
         }
     }
 
@@ -47,7 +47,7 @@ public class PlayerManager : MonoBehaviour
         hidingObject = a;
         idk.moveSpeed = 0;
         GetComponent<CharacterController>().enabled = false;
-        GetComponent<XROrigin>().CameraYOffset = 0.5f;
+        GetComponent<XROrigin>().CameraYOffset = -0.25f;
     }
 
 }
