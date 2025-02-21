@@ -529,6 +529,7 @@ MonoBehaviour:
     type: 3}
   closedMesh: {fileID: -5741174448488666723, guid: d2a7511803d7c2d4c95236fe695e758b,
     type: 3}
+  isBookOpen: 0
 --- !u!114 &7814739265013514511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -544,10 +545,7 @@ MonoBehaviour:
   maxVelocity: 10
   source: {fileID: 4326761367364227236}
   sounds:
-  - {fileID: 8300000, guid: c365bfe41744d3c4abb800151765710d, type: 3}
-  - {fileID: 8300000, guid: d577b6d773ff5da4680ad26a50b2093c, type: 3}
-  - {fileID: 8300000, guid: 84f78630a80075a48a5a7de9f9b00295, type: 3}
-  - {fileID: 8300000, guid: 38ff7b093fa97db4da6f7bf1c2391620, type: 3}
+  - {fileID: 8300000, guid: b15778ff3f1a54444bed6d53dadc9955, type: 3}
   pitchCurve:
     serializedVersion: 2
     m_Curve:
