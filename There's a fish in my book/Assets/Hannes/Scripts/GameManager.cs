@@ -219,17 +219,15 @@ public class GameManager : MonoBehaviour
         // returns the new cloned book
         return newBook;
     }
-    public void EndDay()
+    public bool EndDay()
     {
         if (nrCorrectBooks == correctBooks.Length)
         {
             day++;
             StartDay();
+            return true;
         }
-        else
-        {
-            MessegeManager.instance.ActivateText("Finish your tasks first");
-        }
+        return false;
     }
     /// <summary>
     /// Scans a book and updates all the related values
