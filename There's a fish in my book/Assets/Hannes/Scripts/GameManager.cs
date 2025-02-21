@@ -73,6 +73,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void StartDay()
     {
+        time = 0;
+
         GameObject.FindGameObjectWithTag("Player").transform.position = playerSpawnPosition.position;
         GameObject.FindGameObjectWithTag("Librarian").transform.position = librarienSpawnPosition.position;
 
@@ -174,7 +176,7 @@ public class GameManager : MonoBehaviour
     /// <returns>returns the new book</returns>
     private Book CloneBook(Book original)
     {
-        List<List<char>> letterarray = new List<List<char>> { "abcdefghijklmnopqrstuvwxyzåäöABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ .,".ToCharArray().ToList(), "edgpatqnlijwmubofcyhkrvszxäåoHDGBFECATLXJNMQROPZIWYUKVSÄÅO-,.".ToCharArray().ToList() };
+        List<List<char>> letterarray = new List<List<char>> { "abcdefghijklmnopqrstuvwxyzåäöABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ1234567890 .,".ToCharArray().ToList(), "edgpatqnlijwmubofcyhkrvszxäåoHDGBFECATLXJNMQROPZIWYUKVSÄÅO0987654321-,.".ToCharArray().ToList() };
         // a list with all letters of the
         char[] title = original.title.text.ToCharArray();
         // a list with all letters of the author
