@@ -8,12 +8,14 @@ public class VFXManager : MonoBehaviour
     public GameObject spawnedObject;
     public void OpenBookTrigger(Transform parent)
     {
-        spawnedObject = Instantiate(VFX, parent);
+        if (VFX != null)
+            spawnedObject = Instantiate(VFX, parent);
     }
 
     public void CloseBookTrigger()
     {
-        Destroy(spawnedObject);
+        if (spawnedObject != null)
+            Destroy(spawnedObject);
     }
 
     public void SetVFX(GameObject vfx)

@@ -50,6 +50,8 @@ public class SoundIntensityController : MonoBehaviour
             source.pitch = iIntensity;
             source.volume = intensity;
             source.PlayOneShot(sounds[Random.Range(0, sounds.Count - 1)]);
+
+            //TransformGameObject.FindAnyObjectByType<LibrarianAI>().IncreaseAnger(intensity * );
         }
         Debug.Log("velocity: " + prevVelocity + ", intensity: " + intensity);
     }
