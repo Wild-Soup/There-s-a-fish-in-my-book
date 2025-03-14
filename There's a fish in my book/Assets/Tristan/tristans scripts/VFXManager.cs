@@ -4,14 +4,30 @@ using UnityEngine;
 
 public class VFXManager : MonoBehaviour
 {
-    public List<GameObject> VFX;
-    public void OpenBookTrigger(int index)
+    public GameObject VFX;
+    public GameObject spawnedObject;
+    public void OpenBookTrigger(Transform parent)
     {
-        Instantiate(VFX[index]);
+        if (VFX != null)
+        {
+            spawnedObject = Instantiate(VFX, parent);
+
+            Transform lib = GameObject.FindAnyObjectByType<LibrarianAI>().transform;
+
+            float distance = Vector3.Distance(transform.position, lib.position);
+
+            lib.GetComponent<LibrarianAI>().IncreaseAnger(50f);
+        }
     }
 
-    public void CloseBookTrigger(GameObject toDestroy)
+    public void CloseBookTrigger()
     {
-        Destroy(toDestroy);
+        if (spawnedObject != null)
+            Destroy(spawnedObject);
+    }
+
+    public void SetVFX(GameObject vfx)
+    {
+        VFX = vfx;
     }
 }

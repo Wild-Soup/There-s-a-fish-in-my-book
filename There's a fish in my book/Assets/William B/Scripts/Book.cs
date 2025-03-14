@@ -12,7 +12,6 @@ public class Book : MonoBehaviour
     [SerializeField] private float buffer = 0.05f;
 
     // Variables
-    private bool isOpen = false;
 
     // Reference
     public TextMeshProUGUI title;
@@ -22,12 +21,9 @@ public class Book : MonoBehaviour
     [SerializeField] UnityEvent onOpenEvents;
 
     public InputActionReference openInput;
-
-    // Function-like
-    public bool IsOpen
-    {
-        get { return isOpen; }
-    }
+    public Mesh openMesh;
+    public Mesh closedMesh;
+    public bool isBookOpen = false;
 
 
     // Start is called before the first frame update
@@ -49,14 +45,14 @@ public class Book : MonoBehaviour
 
     private void OnEnable()
     {
-        openInput.action.Enable();
+        //openInput.action.Enable();
 
-        openInput.action.performed += OpenBook;
+        //openInput.action.performed += OpenBook;
     }
 
     public void OpenBook(InputAction.CallbackContext ctx)
     {
-        isOpen = true;
+        //isOpen = true;
 
         // If the book is a fake (if it has events), trigger said events
         if (onOpenEvents != null)
@@ -79,5 +75,20 @@ public class Book : MonoBehaviour
     /// </summary>
     public void OnOpen()
     {
+        GetComponent<MeshFilter>().mesh = openMesh;
+        title.enabled = false;
+        author.enabled = false;
+        isBookOpen = true;
+        GameObject.Find("VFXManager").GetComponent<VFXManager>().OpenBookTrigger(transform.gameObject.transform);
     }
+
+    public void OnClose()
+    {
+        GetComponent<MeshFilter>().mesh = closedMesh;
+        title.enabled = true;
+        author.enabled = true;
+        isBookOpen = false;
+        GameObject.Find("VFXManager").GetComponent<VFXManager>().CloseBookTrigger();
+    }
+
 }

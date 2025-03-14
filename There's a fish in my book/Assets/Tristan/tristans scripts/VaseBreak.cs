@@ -32,8 +32,10 @@ public class VaseBreak : MonoBehaviour
         brokenPot.SetActive(true);
         if (Smoke != null)
             Smoke.Play();
-        if(sound != null)
+        if (sound != null) {
             sound.Play();
+            GameObject.Find("Librarian").GetComponent<LibrarianAI>().IncreaseAnger(100);
+                }
     }
     private void OnCollisionEnter(Collision collision)
     {

@@ -19,6 +19,8 @@ public class LibrarianAI : MonoBehaviour
     public float minWalkDistance;
     public LayerMask obstacleMask;
 
+    public AudioSource huntMusic;
+    public AudioSource normalMusic;
 
     public float walkRange;
     public float maxViewRange;
@@ -87,21 +89,29 @@ public class LibrarianAI : MonoBehaviour
         angerTxt.text = $"Librarian Anger: {anger}";
         angerMeter.fillAmount = anger / maxAnger;
 
-        if (anger >= maxAnger)
+        if (anger >= maxAnger && !isInHunt)
         {
             HuntPlayer();
+        }
+        else if (isInHunt)
+        {
+            agent.SetDestination(player.transform.position);
         }
     }
 
     private void HuntPlayer()
     {
         isInHunt = true;
+        normalMusic.Stop();
+        huntMusic.Play();
         agent.SetDestination(player.transform.position);
     }
 
     private void EndHunt()
     {
         isInHunt = false;
+        huntMusic.Stop();
+        normalMusic.Play();
         agent.SetDestination(idlePos.transform.position);
         sawHiding = false;
     }
@@ -135,12 +145,12 @@ public class LibrarianAI : MonoBehaviour
                 angerTxt.text = $"Librarian Anger: {anger}";
                 angerMeter.fillAmount = anger / maxAnger;
             }
-            else if(anger == 0)
+            else if(anger == 0 && isInHunt)
             {
                 EndHunt();
             }
 
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(5);
         }
     }
 
