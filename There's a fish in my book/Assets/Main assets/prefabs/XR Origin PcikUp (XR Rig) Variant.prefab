@@ -416,7 +416,8 @@ MonoBehaviour:
     type: 3}
   redScan: {fileID: 0}
   greenScan: {fileID: 0}
-  source: {fileID: 0}
+  susccessSource: {fileID: 0}
+  failedSource: {fileID: 0}
 --- !u!1 &4327547542935689785
 GameObject:
   m_ObjectHideFlags: 0

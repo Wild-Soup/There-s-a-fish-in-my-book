@@ -89,9 +89,13 @@ public class LibrarianAI : MonoBehaviour
         angerTxt.text = $"Librarian Anger: {anger}";
         angerMeter.fillAmount = anger / maxAnger;
 
-        if (anger >= maxAnger)
+        if (anger >= maxAnger && !isInHunt)
         {
             HuntPlayer();
+        }
+        else if (isInHunt)
+        {
+            agent.SetDestination(player.transform.position);
         }
     }
 

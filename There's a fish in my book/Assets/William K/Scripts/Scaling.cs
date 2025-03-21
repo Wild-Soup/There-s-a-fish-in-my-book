@@ -13,14 +13,15 @@ public class Scaling : MonoBehaviour
 
     private void Start()
     {
-        float height = 1.5f;
-        slider.GetComponent<Slider>().value = height / 1.5f;
+        float height = 1.7f;
+        slider.GetComponent<Slider>().value = height;
+        GetComponentInParent<XROrigin>().CameraYOffset = height-0.7f;
         heightTxt.text = $"{System.Math.Round(height, 2)}m";
     }
     public void ChangeHeight()
     {
         float height = slider.GetComponent<Slider>().value;
-        GetComponentInParent<XROrigin>().CameraYOffset = height / 1.5f;
+        GetComponentInParent<XROrigin>().CameraYOffset = height-0.7f;
         heightTxt.text = $"{System.Math.Round(height,2)}m";
         
     }
