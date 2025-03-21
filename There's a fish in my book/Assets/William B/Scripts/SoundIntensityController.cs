@@ -52,7 +52,7 @@ public class SoundIntensityController : MonoBehaviour
             source.PlayOneShot(sounds[Random.Range(0, sounds.Count - 1)]);
 
             // Librarian interactions
-            if (GameObject.FindAnyObjectByType<LibrarianAI>() == null)
+            if (GameObject.FindAnyObjectByType<LibrarianAI>() != null)
             {
                 Transform lib = GameObject.FindAnyObjectByType<LibrarianAI>().transform;
 
