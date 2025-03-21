@@ -5,6 +5,7 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.Rendering;
 public class LibrarianAI : MonoBehaviour
 {
     public GameObject idlePos;
@@ -34,6 +35,9 @@ public class LibrarianAI : MonoBehaviour
 
     public Image angerMeter;
     public TextMeshProUGUI angerTxt;
+
+    [Header("AngerVignette")]
+    public Volume angerVignette;
 
     // Start is called before the first frame update
     void Start()
@@ -80,7 +84,7 @@ public class LibrarianAI : MonoBehaviour
             
 
         }
-
+        angerVignette.weight = anger / maxAnger;
     }
 
     public void IncreaseAnger(float amount)

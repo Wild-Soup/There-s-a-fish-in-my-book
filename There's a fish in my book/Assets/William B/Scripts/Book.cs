@@ -79,7 +79,7 @@ public class Book : MonoBehaviour
         title.enabled = false;
         author.enabled = false;
         isBookOpen = true;
-        GameObject.Find("VFXManager").GetComponent<VFXManager>().OpenBookTrigger(transform.gameObject.transform);
+        GetComponent<VFXManager>().OpenBookTrigger(transform);
     }
 
     public void OnClose()
@@ -88,7 +88,7 @@ public class Book : MonoBehaviour
         title.enabled = true;
         author.enabled = true;
         isBookOpen = false;
-        GameObject.Find("VFXManager").GetComponent<VFXManager>().CloseBookTrigger();
+        GetComponent<VFXManager>().CloseBookTrigger();
     }
 
 }

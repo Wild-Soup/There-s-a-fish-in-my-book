@@ -10,6 +10,7 @@ public class VFXManager : MonoBehaviour
     {
         if (VFX != null)
         {
+            Debug.Log("dunnno");
             spawnedObject = Instantiate(VFX, parent);
 
             Transform lib = GameObject.FindAnyObjectByType<LibrarianAI>().transform;
