@@ -7,6 +7,8 @@ public class cameraShake : MonoBehaviour
     private float orignalFOV;
     private Camera cm;
     public float shaekAmount;
+    [Range(0, 1)]
+    public float amount;
 
 
     private void Start()
@@ -18,6 +20,6 @@ public class cameraShake : MonoBehaviour
     void Update()
     {
         float rn = Random.Range(-1 * shaekAmount, shaekAmount);
-        cm.fieldOfView = orignalFOV + rn;
+        cm.fieldOfView = orignalFOV + (rn * amount);
     }
 }
