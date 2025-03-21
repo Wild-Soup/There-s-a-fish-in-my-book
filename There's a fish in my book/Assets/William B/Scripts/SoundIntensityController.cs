@@ -51,11 +51,16 @@ public class SoundIntensityController : MonoBehaviour
             source.volume = intensity;
             source.PlayOneShot(sounds[Random.Range(0, sounds.Count - 1)]);
 
-            Transform lib = GameObject.FindAnyObjectByType<LibrarianAI>().transform;
+            // Librarian interactions
+            if (GameObject.FindAnyObjectByType<LibrarianAI>() == null)
+            {
+                Transform lib = GameObject.FindAnyObjectByType<LibrarianAI>().transform;
 
-            float distance = Vector3.Distance(transform.position, lib.position);
 
-            lib.GetComponent<LibrarianAI>().IncreaseAnger(iIntensity * intensity * (1/distance));
+                float distance = Vector3.Distance(transform.position, lib.position);
+
+                lib.GetComponent<LibrarianAI>().IncreaseAnger(iIntensity * intensity * (1 / distance));
+            }
 
         }
         Debug.Log("velocity: " + prevVelocity + ", intensity: " + intensity);
