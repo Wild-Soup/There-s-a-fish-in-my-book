@@ -16,10 +16,16 @@ public class laser_VFX_script : MonoBehaviour
     public float bladeSpeed;
     public bool isOn;
     public bool isDuel;
-    
+
+    [Header("SFX")]
+    public AudioSource turnOnSound;
+    public AudioSource turnOffSound;
+    public AudioSource idleSound;
+    public AudioSource swingSound;
 
     private void FixedUpdate()
     {
+        
         time += Time.deltaTime / colorDuration;
         Color emissioncolor = laserColor.Evaluate(time % 1f);
         laserMaterial.SetColor("_EmissionColor", emissioncolor * laserEmision);
@@ -30,6 +36,7 @@ public class laser_VFX_script : MonoBehaviour
 
         if (isOn)
         {
+            idleSound.volume = Mathf.Lerp(idleSound.volume, 1, bladeSpeed);
             if (!isDuel)
             {
                 cylinderLaser.localScale = Vector3.Lerp(new Vector3(cylinderLaser.localScale.x, cylinderLaser.localScale.y, cylinderLaser.localScale.z),
@@ -49,18 +56,38 @@ public class laser_VFX_script : MonoBehaviour
         }
         else
         {
+            idleSound.volume = Mathf.Lerp(idleSound.volume, 0, bladeSpeed);
             cylinderLaser.localScale = Vector3.Lerp(new Vector3(cylinderLaser.localScale.x, cylinderLaser.localScale.y, cylinderLaser.localScale.z),
                     new Vector3(cylinderLaser.localScale.x, 0, cylinderLaser.localScale.z),
                     bladeSpeed);
             cylinderLaser.localPosition = Vector3.Lerp(new Vector3(cylinderLaser.localPosition.x, cylinderLaser.localPosition.y, cylinderLaser.localPosition.z),
                 new Vector3(cylinderLaser.localPosition.x, cylinderLaser.localPosition.y,0 ), bladeSpeed);
         }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            SwitchSaber();
+        }
     }
 
     public void SwitchSaber()
     {
         isOn = !isOn;
+
+        if (isOn)
+            turnOnSound.Play();
+        else
+            turnOffSound.Play();
         
+    }
+
+    public void TurnOf()
+    {
+        if (isOn)
+        {
+            isOn = false;
+            turnOffSound.Play();
+        }
     }
 
 }
