@@ -17,10 +17,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Hannes/scenesomething.unity
     guid: f1d52b3b3c1ce044d87facbe806d1e6b
-  - enabled: 1
+  - enabled: 0
     path: Assets/William K/Menu.unity
     guid: 5a21b0e34eefa094785cf5b8e87d0098
-  - enabled: 1
+  - enabled: 0
     path: Assets/Main assets/scene/Tutorial.unity
     guid: e15b267af75a62b4d93031225346cbfe
   - enabled: 1
