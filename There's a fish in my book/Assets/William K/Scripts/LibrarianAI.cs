@@ -84,7 +84,6 @@ public class LibrarianAI : MonoBehaviour
             
 
         }
-        angerVignette.weight = anger / maxAnger;
     }
 
     public void IncreaseAnger(float amount)
@@ -92,6 +91,7 @@ public class LibrarianAI : MonoBehaviour
         anger = Mathf.Clamp(anger + amount, 0, maxAnger);
         angerTxt.text = $"Librarian Anger: {anger}";
         angerMeter.fillAmount = anger / maxAnger;
+        angerVignette.weight = anger / maxAnger;
 
         if (anger >= maxAnger && !isInHunt)
         {
@@ -148,6 +148,7 @@ public class LibrarianAI : MonoBehaviour
                 anger = Mathf.Clamp(anger - angerDegeradtion, 0, maxAnger);
                 angerTxt.text = $"Librarian Anger: {anger}";
                 angerMeter.fillAmount = anger / maxAnger;
+                angerVignette.weight = anger / maxAnger;
             }
             else if(anger == 0 && isInHunt)
             {
