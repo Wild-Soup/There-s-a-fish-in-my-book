@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour
         // gets the amount of generated books that will be correct during this day
         int mainBooksCount = (2 * (day - 1)) + 3;
         // gets the amount of generated books that will be traps during this day
-        int trapBooksCount = 2 * (day - 1);
+        int trapBooksCount = 2 * (day - 1 + 1);
         // gets the amount of books that will be cloned during this day
         int cloneBooksCount = day;
 
