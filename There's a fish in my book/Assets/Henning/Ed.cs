@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-/*
+
 [CustomEditor(typeof(SlottsMachine))]
 public class Ed : Editor
 {
@@ -16,4 +16,3 @@ public class Ed : Editor
             lol.StartCoroutine(lol.SpinMachine());
     }
 }
-*/
