@@ -74,7 +74,7 @@ public class LibrarianAI : MonoBehaviour
             {
                 agent.speed = speed;
 
-                if (transform.position == agent.destination || agent.velocity.magnitude == 0 && !gotPlayer)
+                if (agent.velocity.magnitude <= 0.2f && !gotPlayer)
                 {
                     agent.SetDestination(GetRandomAreaPos(transform.position));
                 }
@@ -159,7 +159,13 @@ public class LibrarianAI : MonoBehaviour
         }
     }
 
-
+    public void ResetAnger()
+    {
+        anger = 0;
+        angerTxt.text = $"Librarian Anger: {anger}";
+        angerMeter.fillAmount = anger / maxAnger;
+        angerVignette.weight = anger / maxAnger;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
