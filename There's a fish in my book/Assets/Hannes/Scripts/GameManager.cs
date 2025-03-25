@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
             if (correctBooks.Contains(book))
             {
                 objectiveText[correctBooks.FindIndex(x => x == book)].text += $"{book.title.text} by {book.author.text}";
-                objectiveText[correctBooks.FindIndex(x => x == book)].color = Color.black;
+                objectiveText[correctBooks.FindIndex(x => x == book)].color = Color.white;
             }
 
             // gets a random position
