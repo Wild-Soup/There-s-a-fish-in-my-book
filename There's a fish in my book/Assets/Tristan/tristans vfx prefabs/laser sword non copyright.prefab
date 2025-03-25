@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7321200384021104624}
   - component: {fileID: 3687228366032133392}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: blade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 3638938720582161607}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 3}
-  m_LocalScale: {x: 0.25, y: 3, z: 0.25}
+  m_LocalPosition: {x: 0, y: 0, z: 0.2}
+  m_LocalScale: {x: 0.25, y: 0.2, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8557858790230541001}
@@ -212,14 +212,21 @@ MonoBehaviour:
   laserEmision: 3
   laserThicknes: 0.25
   laserFrequency: 0.05
-  bladeLenght: 3
+  bladelength: 3
   bladeSpeed: 0.05
-  isOn: 1
+  isOn: 0
   isDuel: 0
   turnOnSound: {fileID: 4438326842631675140}
   turnOffSound: {fileID: 2737965350558368076}
   idleSound: {fileID: 3396219315259334753}
   swingSound: {fileID: 2516586379363090654}
+  swingThreshold:
+  - 2
+  - 2
+  pitchRate:
+  - 1
+  - 1
+  pitchConstant: 0.8
 --- !u!54 &2335591513517264341
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -246,7 +253,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!136 &237158494960501409
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -458,7 +465,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 560684e81a2f2b44689e0c7a364bb22c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -467,7 +474,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -563,7 +570,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -659,7 +666,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -755,7 +762,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -842,7 +849,7 @@ GameObject:
   - component: {fileID: 2224453935317277507}
   - component: {fileID: 8415680156526772293}
   m_Layer: 0
-  m_Name: Cylinder (1)
+  m_Name: handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
