@@ -593,10 +593,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2335591513517264341, guid: 9f8d3db688ff4d14f918a31e0c7ead66,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3638938720582161607, guid: 9f8d3db688ff4d14f918a31e0c7ead66,
+        type: 3}
+      propertyPath: m_Name
+      value: blade
+      objectReference: {fileID: 0}
     - target: {fileID: 4310517772375034293, guid: 9f8d3db688ff4d14f918a31e0c7ead66,
         type: 3}
       propertyPath: m_Name
       value: laser sword non copyright
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049736945441819689, guid: 9f8d3db688ff4d14f918a31e0c7ead66,
+        type: 3}
+      propertyPath: isOn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049736945441819689, guid: 9f8d3db688ff4d14f918a31e0c7ead66,
+        type: 3}
+      propertyPath: bladelength
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049736945441819689, guid: 9f8d3db688ff4d14f918a31e0c7ead66,
+        type: 3}
+      propertyPath: swingThreshold.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049736945441819689, guid: 9f8d3db688ff4d14f918a31e0c7ead66,
+        type: 3}
+      propertyPath: swingThreshold.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321200384021104624, guid: 9f8d3db688ff4d14f918a31e0c7ead66,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8557858790230541001, guid: 9f8d3db688ff4d14f918a31e0c7ead66,
         type: 3}
@@ -606,7 +641,7 @@ PrefabInstance:
     - target: {fileID: 8557858790230541001, guid: 9f8d3db688ff4d14f918a31e0c7ead66,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8557858790230541001, guid: 9f8d3db688ff4d14f918a31e0c7ead66,
         type: 3}
@@ -647,6 +682,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628844174117142159, guid: 9f8d3db688ff4d14f918a31e0c7ead66,
+        type: 3}
+      propertyPath: m_Name
+      value: handle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

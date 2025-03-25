@@ -15,10 +15,10 @@ public class SoundIntensityController : MonoBehaviour
     private Rigidbody rb;
     [SerializeField]private AudioSource source;
 
-    [Tooltip("")]
+    [Tooltip("Sounds made when colliding with something")]
     [SerializeField] private List<AudioClip> sounds = new List<AudioClip>();
 
-    [Tooltip("")]
+    [Tooltip("The rate at which the pitch decreases proportional to velocity")]
     [SerializeField] private AnimationCurve pitchCurve;
 
     // Start is called before the first frame update
@@ -43,7 +43,7 @@ public class SoundIntensityController : MonoBehaviour
         // Only play sounds when there are sounds
         if (sounds.Count > 0)
         {
-            // temp variables
+            // Temp variables
             float iIntensity = pitchCurve.Evaluate(intensity);
             Debug.Log("better tensity: " + iIntensity);
 
@@ -55,10 +55,7 @@ public class SoundIntensityController : MonoBehaviour
             if (GameObject.FindAnyObjectByType<LibrarianAI>() != null)
             {
                 Transform lib = GameObject.FindAnyObjectByType<LibrarianAI>().transform;
-
-
                 float distance = Vector3.Distance(transform.position, lib.position);
-
                 lib.GetComponent<LibrarianAI>().IncreaseAnger(iIntensity * intensity * (1 / distance));
             }
 
