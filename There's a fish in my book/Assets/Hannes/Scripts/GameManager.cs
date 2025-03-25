@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Transform librarienSpawnPosition;
     [SerializeField] private Transform playerSpawnPosition;
-    [SerializeField] private TextMeshProUGUI objectiveText;
+    [SerializeField] private TextMeshProUGUI[] objectiveText;
     // the prefab for the books
     [SerializeField] private GameObject bookPrefab;
     // time and game progression
@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Day[] days;
     // amount of books the game has generate
     [SerializeField] private Book[] generatedBooks;
-    [SerializeField] private Book[] correctBooks;
+    [SerializeField] private List<Book> correctBooks;
     [SerializeField] private List<Book> scannedBooks;
     // number of correct and incorrect books the player has collected
     [SerializeField] private int nrCorrectBooks = 0;
@@ -89,13 +89,17 @@ public class GameManager : MonoBehaviour
 
         List<GameObject> positions = GameObject.FindGameObjectsWithTag("BookPos").ToList();
 
-        objectiveText.text = "";
+        foreach (TextMeshProUGUI text in objectiveText)
+            text.text = "";
 
         // places all the books around the library
         foreach (Book book in generatedBooks)
         {
             if (correctBooks.Contains(book))
-                objectiveText.text += $"{book.title.text} by {book.author.text}\n";
+            {
+                objectiveText[correctBooks.FindIndex(x => x == book)].text += $"{book.title.text} by {book.author.text}";
+                objectiveText[correctBooks.FindIndex(x => x == book)].color = Color.black;
+            }
 
             // gets a random position
             int index = Random.Range(0, positions.Count);
@@ -116,13 +120,13 @@ public class GameManager : MonoBehaviour
         // gets the amount of generated books that will be correct during this day
         int mainBooksCount = (2 * (day - 1)) + 3;
         // gets the amount of generated books that will be traps during this day
-        int trapBooksCount = 2 * (day - 1 + 1);
+        int trapBooksCount = 2 * (day - 1);
         // gets the amount of books that will be cloned during this day
         int cloneBooksCount = day;
 
         // creates a  list of all the books that will generate
         generatedBooks = new Book[booksCount + trapBooksCount + cloneBooksCount];
-        correctBooks = new Book[mainBooksCount];
+        correctBooks = new List<Book>();
         // a list contain unused titles
         List<string> availableTitles = new List<string>();
         // adds every title to the available titles
@@ -140,7 +144,7 @@ public class GameManager : MonoBehaviour
                 colors[Random.Range(0, colors.Length)]); // all possible colors
             // make this book a main book if i is less than the amount of main books
             if (i < mainBooksCount)
-                correctBooks[i] = generatedBooks[i];
+                correctBooks.Add(generatedBooks[i]);
             // removes this books title from the available titles
             availableTitles.Remove(generatedBooks[i].title.text);
         }
@@ -166,7 +170,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < cloneBooksCount; i++)
         {
             // clones the correct books
-            generatedBooks[booksCount + trapBooksCount + i] = CloneBook(correctBooks[Random.Range(0, correctBooks.Length)]);
+            generatedBooks[booksCount + trapBooksCount + i] = CloneBook(correctBooks[Random.Range(0, correctBooks.Count)]);
         }
     }
     /// <summary>
@@ -219,7 +223,7 @@ public class GameManager : MonoBehaviour
     }
     public bool EndDay(bool overrride = false)
     {
-        if (nrCorrectBooks == correctBooks.Length || overrride)
+        if (nrCorrectBooks == correctBooks.Count || overrride)
         {
             day++;
             StartCoroutine(FadeinFadeOut(1f));
@@ -273,6 +277,7 @@ public class GameManager : MonoBehaviour
         if (correctBooks.Contains(book))
         {
             nrCorrectBooks++;
+            objectiveText[correctBooks.FindIndex(x => x == book)].color = Color.green;
             return true;
         }
 
