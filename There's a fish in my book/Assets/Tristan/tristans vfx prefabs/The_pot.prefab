@@ -1023,7 +1023,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -9520,32 +9520,32 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a2990945a9f93b3448ff4a8b84080a27,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2990945a9f93b3448ff4a8b84080a27,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2990945a9f93b3448ff4a8b84080a27,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.04240462
+      value: 0.02120231
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2990945a9f93b3448ff4a8b84080a27,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.31767964
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2990945a9f93b3448ff4a8b84080a27,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.711
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2990945a9f93b3448ff4a8b84080a27,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.846
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2990945a9f93b3448ff4a8b84080a27,
         type: 3}

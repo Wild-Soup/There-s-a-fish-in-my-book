@@ -89,8 +89,9 @@ public class laser_VFX_script : MonoBehaviour
         }
 
         // Idle pitch
-        idleSound.pitch = Mathf.Clamp(rb.velocity.magnitude / pitchRate[0] + rb.angularVelocity.magnitude / pitchRate[1] + pitchConstant * Time.deltaTime, 1, 3);
-
+        idleSound.pitch = Mathf.Lerp(idleSound.pitch,
+            Mathf.Clamp(rb.velocity.magnitude / pitchRate[0] + rb.angularVelocity.magnitude / pitchRate[1] + pitchConstant * Time.deltaTime, 1, 3),
+            0.25f);
         // Velocity based sounds
         if (rb.velocity.magnitude > swingThreshold[0] && swinging == false)
         {
