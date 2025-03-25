@@ -8,6 +8,8 @@ using UnityEngine;
 [CustomEditor(typeof(GameManager))]
 public class GameManagerEditor : Editor
 {
+    private SerializedProperty hourhand;
+    private SerializedProperty minutehand;
     private SerializedProperty bookPrefab;
     private SerializedProperty fadeInpanel;
     private SerializedProperty objectiveText;
@@ -41,6 +43,8 @@ public class GameManagerEditor : Editor
 
     private void OnEnable()
     {
+        hourhand = serializedObject.FindProperty("hourhand");
+        minutehand = serializedObject.FindProperty("minutehand");
         bookPrefab = serializedObject.FindProperty("bookPrefab");
         objectiveText = serializedObject.FindProperty("objectiveText");
         librarienSpawnPosition = serializedObject.FindProperty("librarienSpawnPosition");
@@ -65,6 +69,10 @@ public class GameManagerEditor : Editor
     public override void OnInspectorGUI()
     {
         serializedObject.UpdateIfRequiredOrScript();
+
+
+        EditorGUILayout.PropertyField(hourhand, new GUIContent("Hour hand of the clock"));
+        EditorGUILayout.PropertyField(minutehand, new GUIContent("minute Hand of the clock"));
 
         if (bookPrefab.boxedValue == null)
             EditorGUILayout.HelpBox("This script needs a book prefab", MessageType.Error);
