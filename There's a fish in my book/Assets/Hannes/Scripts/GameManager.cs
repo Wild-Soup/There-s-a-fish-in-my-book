@@ -9,6 +9,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    [SerializeField] private Transform hourhand;
+    [SerializeField] private Transform minutehand;
 
     [SerializeField] private Transform librarienSpawnPosition;
     [SerializeField] private Transform playerSpawnPosition;
@@ -52,9 +54,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
+        time += Mathf.Clamp(Time.deltaTime, 0f, 360f);
 
-        if (time >= 300f)
+        hourhand.rotation = Quaternion.Euler(0f, 0f, ((240f / 360f) * time) - 90f);
+        minutehand.rotation = Quaternion.Euler(0f, 0f, (360f * (time / 60f)));
+
+        if (time >= 360f)
         {
             GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<ActionBasedContinuousMoveProvider>().moveSpeed = 0;
             gameOverPanel.SetActive(true);
@@ -73,7 +78,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void StartDay()
     {
-        time = 0;
+        time = 0f;
+
+        nrCorrectBooks = 0;
+        nrIncorrectBooks = 0;
 
         GameObject.FindGameObjectWithTag("Player").transform.position = playerSpawnPosition.position;
         GameObject.FindGameObjectWithTag("Librarian").transform.position = librarienSpawnPosition.position;

@@ -188,9 +188,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 68c77787ad2ad114da91193eaca4d7b6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 125bda3a4bfb5d84aa1f1653535c5791, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -322,7 +322,7 @@ Canvas:
   m_GameObject: {fileID: 9075964603911144714}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 1
   m_PixelPerfect: 0
