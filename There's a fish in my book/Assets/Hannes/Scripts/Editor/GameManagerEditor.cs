@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.Purchasing;
 using UnityEngine;
+#if UNITY_EDITOR
+
 [CustomEditor(typeof(GameManager))]
 public class GameManagerEditor : Editor
 {
@@ -171,3 +173,4 @@ public class GameManagerEditor : Editor
         serializedObject.ApplyModifiedProperties();
     }
 }
+#endif
