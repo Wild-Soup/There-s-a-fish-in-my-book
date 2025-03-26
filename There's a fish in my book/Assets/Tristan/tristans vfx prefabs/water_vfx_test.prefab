@@ -16,7 +16,7 @@ PrefabInstance:
     - target: {fileID: 1000307172666163819, guid: 0030c8251cfc6a747b4ecaacc01b92ae,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.595
       objectReference: {fileID: 0}
     - target: {fileID: 1000307172666163819, guid: 0030c8251cfc6a747b4ecaacc01b92ae,
         type: 3}
@@ -208,6 +208,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: water_vfx_test
       objectReference: {fileID: 0}
+    - target: {fileID: 7029252440564249493, guid: 0030c8251cfc6a747b4ecaacc01b92ae,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c2eb85fad94201c49afee84b732fef02, type: 3}
     - target: {fileID: 7038139012539671008, guid: 0030c8251cfc6a747b4ecaacc01b92ae,
         type: 3}
       propertyPath: m_LocalPosition.x

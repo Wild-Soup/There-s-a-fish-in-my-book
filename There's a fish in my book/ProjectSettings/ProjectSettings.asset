@@ -143,6 +143,9 @@ PlayerSettings:
   bundleVersion: 0.1.0
   preloadedAssets:
   - {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  - {fileID: 2582653482207115657, guid: 21ed88a90bcc2d44caaa4270f8e32315, type: 2}
+  - {fileID: 11400000, guid: 076d124828a79c548a1ee9664bf7d28c, type: 2}
+  - {fileID: -7912824010832388011, guid: 3e634363b387c3f4893e166eee6746cc, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -153,7 +156,7 @@ PlayerSettings:
   isWsaHolographicRemotingEnabled: 0
   enableFrameTimingStats: 0
   enableOpenGLProfilerGPURecorders: 1
-  allowHDRDisplaySupport: 0
+  allowHDRDisplaySupport: 1
   useHDRDisplay: 0
   hdrBitDepth: 0
   m_ColorGamuts: 00000000
@@ -524,7 +527,7 @@ PlayerSettings:
     m_APIs: 10000000
     m_Automatic: 1
   - m_BuildTarget: AndroidPlayer
-    m_APIs: 0b000000
+    m_APIs: 15000000
     m_Automatic: 0
   m_BuildTargetVRSettings: []
   m_DefaultShaderChunkSizeInMB: 16

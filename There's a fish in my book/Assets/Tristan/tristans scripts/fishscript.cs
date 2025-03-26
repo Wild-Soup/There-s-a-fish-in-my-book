@@ -11,6 +11,10 @@ public class fishscript : MonoBehaviour
     public bool makeSound;
     public AudioSource[] sounds = new AudioSource[5];
     private Rigidbody rb;
+    public bool isHeld = true;
+    private bool shoudlFlopp;
+    public fishscript[] fishParts = new fishscript[2];
+
 
 
     void Start()
@@ -21,7 +25,31 @@ public class fishscript : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (moves)
+        for (int i = 0; i < fishParts.Length; i++)
+        {
+            float amountHeld = 0;
+            if (fishParts[i].isHeld == true)
+            {
+                amountHeld++;
+            }
+
+            if (amountHeld > 0)
+            {
+                foreach (fishscript item in fishParts)
+                {
+                    shoudlFlopp = false;
+                }
+            }
+            else
+            {
+                foreach (fishscript item in fishParts)
+                {
+                    shoudlFlopp = true;
+                }
+            }
+        }
+
+        if (moves && shoudlFlopp)
         {
             // Apply sinusoidal movement to the joint motor
             JointMotor motor = tailJoint.motor;
@@ -44,9 +72,18 @@ public class fishscript : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (Random.Range(1, 150) == 1)
+        if (Random.Range(1, 150) == 1 && shoudlFlopp)
         {
             rb.AddForce(Vector3.up * 10, ForceMode.VelocityChange);
         }
+    }
+
+    public void OnHeldEnter()
+    {
+        isHeld = true;
+    }
+    public void OnHeldExit()
+    {
+        isHeld = false;
     }
 }

@@ -56,7 +56,7 @@ public class PlayerManager : MonoBehaviour
             isHiding = false;
             idk.moveSpeed = playerSpeed;
             GetComponent<CharacterController>().enabled = true;
-            GetComponent<XROrigin>().CameraYOffset = GetComponentInChildren<Scaling>().slider.GetComponent<Slider>().value-0.7f;
+            GetComponent<XROrigin>().CameraYOffset = GetComponentInChildren<Scaling>().slider.GetComponent<Slider>().value-0.15f;
         }
     }
 
@@ -66,7 +66,7 @@ public class PlayerManager : MonoBehaviour
         hidingObject = a;
         idk.moveSpeed = 0;
         GetComponent<CharacterController>().enabled = false;
-        GetComponent<XROrigin>().CameraYOffset = -0.1f;
+        GetComponent<XROrigin>().CameraYOffset = 0;
     }
 
 }
