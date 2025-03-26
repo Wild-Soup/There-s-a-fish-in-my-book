@@ -80,11 +80,13 @@ public class GameManager : MonoBehaviour
     {
         time = 0f;
 
+
         nrCorrectBooks = 0;
         nrIncorrectBooks = 0;
 
         GameObject.FindGameObjectWithTag("Player").transform.position = playerSpawnPosition.position;
         GameObject.FindGameObjectWithTag("Librarian").transform.position = librarienSpawnPosition.position;
+        GameObject.FindGameObjectWithTag("Librarian").GetComponent<LibrarianAI>().ResetAnger();
 
         // destroys all books if they already exist
         for (int i = 0; i < generatedBooks.Length; i++)
