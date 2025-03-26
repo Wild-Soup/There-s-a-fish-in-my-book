@@ -56,8 +56,8 @@ public class GameManager : MonoBehaviour
     {
         time += Mathf.Clamp(Time.deltaTime, 0f, 360f);
 
-        hourhand.rotation = Quaternion.Euler(0f, 0f, ((240f / 360f) * time) - 90f);
-        minutehand.rotation = Quaternion.Euler(0f, 0f, (360f * (time / 60f)));
+        hourhand.localRotation = Quaternion.Euler(0f, ((240f / 360f) * time) - 90f, 0f);
+        minutehand.localRotation = Quaternion.Euler(0f, (360f * (time / 60f)), 0f);
 
         if (time >= 360f)
         {
