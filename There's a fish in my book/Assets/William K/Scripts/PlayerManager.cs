@@ -68,5 +68,4 @@ public class PlayerManager : MonoBehaviour
         GetComponent<CharacterController>().enabled = false;
         GetComponent<XROrigin>().CameraYOffset = 0;
     }
-
 }

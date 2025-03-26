@@ -10,6 +10,8 @@ public class Hide : MonoBehaviour
     public Transform hidePos;
     public bool enteringHideOut;
 
+    public GameObject hideVignette;
+
     void Start()
     {
         //player = GameObject.FindGameObjectWithTag("Player");
@@ -18,13 +20,15 @@ public class Hide : MonoBehaviour
 
     public void leaveHideSpot()
     {
+        hideVignette.GetComponent<Animator>().SetTrigger("hide");
         
-        player.transform.position = oldPos;
+        StartCoroutine(LeaveDelay());
         
     }
 
     public void hide(Transform hidePos)
     {
+        hideVignette.GetComponent<Animator>().SetTrigger("hide");
         this.hidePos = hidePos;
         player.GetComponent<PlayerManager>().enteringHideout = true;
         oldPos = player.transform.position;
@@ -33,10 +37,16 @@ public class Hide : MonoBehaviour
     
     public IEnumerator HideDelay()
     {
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(0.6f);
 
         player.GetComponent<PlayerManager>().enteringHideout = false;
         player.transform.position = hidePos.position;
+    }
+    public IEnumerator LeaveDelay()
+    {
+        yield return new WaitForSeconds(0.6f);
+
+        player.transform.position = oldPos;
     }
 
 }
