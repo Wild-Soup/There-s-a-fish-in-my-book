@@ -203,6 +203,11 @@ MonoBehaviour:
   - {fileID: 3304869200661446146}
   - {fileID: 8333185077583745273}
   - {fileID: 821261627291150233}
+  isHeld: 1
+  fishParts:
+  - {fileID: 3558514511660088185}
+  - {fileID: 5229761084340234980}
+  - {fileID: 1054107498808051071}
 --- !u!114 &2164188540710754828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,10 +258,34 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1054107498808051071}
+        m_TargetAssemblyTypeName: fishscript, Assembly-CSharp
+        m_MethodName: OnHeldEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1054107498808051071}
+        m_TargetAssemblyTypeName: fishscript, Assembly-CSharp
+        m_MethodName: OnHeldExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -1038,6 +1067,11 @@ MonoBehaviour:
   - {fileID: 950419537884942921}
   - {fileID: 8242930061106768579}
   - {fileID: 3539003091884046271}
+  isHeld: 1
+  fishParts:
+  - {fileID: 3558514511660088185}
+  - {fileID: 5229761084340234980}
+  - {fileID: 1054107498808051071}
 --- !u!114 &3454992178785852343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1088,10 +1122,34 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5229761084340234980}
+        m_TargetAssemblyTypeName: fishscript, Assembly-CSharp
+        m_MethodName: OnHeldEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5229761084340234980}
+        m_TargetAssemblyTypeName: fishscript, Assembly-CSharp
+        m_MethodName: OnHeldExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -1894,10 +1952,34 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3558514511660088185}
+        m_TargetAssemblyTypeName: fishscript, Assembly-CSharp
+        m_MethodName: OnHeldEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3558514511660088185}
+        m_TargetAssemblyTypeName: fishscript, Assembly-CSharp
+        m_MethodName: OnHeldExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -2019,6 +2101,11 @@ MonoBehaviour:
   - {fileID: 5746248299341486883}
   - {fileID: 7744614001437743739}
   - {fileID: 8611682972237786585}
+  isHeld: 1
+  fishParts:
+  - {fileID: 3558514511660088185}
+  - {fileID: 5229761084340234980}
+  - {fileID: 1054107498808051071}
 --- !u!82 &976919666331712851
 AudioSource:
   m_ObjectHideFlags: 0
