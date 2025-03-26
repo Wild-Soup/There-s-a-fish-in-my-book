@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject bookPrefab;
     // time and game progression
     [SerializeField] private int day = 1;
-    [SerializeField] private float time = 0;
+    public float time { get; private set; }
     [SerializeField] private Day[] days;
     // amount of books the game has generate
     [SerializeField] private Book[] generatedBooks;
