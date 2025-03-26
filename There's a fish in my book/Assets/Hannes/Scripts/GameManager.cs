@@ -292,6 +292,12 @@ public class GameManager : MonoBehaviour
         nrIncorrectBooks++;
         return false;
     }
+
+    public void ChangeTime(float amount)
+    {
+        time = Mathf.Min(time - amount, 360f);
+    }
+
     [System.Serializable]
     public struct Day
     {
