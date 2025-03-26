@@ -80,6 +80,9 @@ public class GameManager : MonoBehaviour
     {
         time = 0f;
 
+        nrCorrectBooks = 0;
+        nrIncorrectBooks = 0;
+
         GameObject.FindGameObjectWithTag("Player").transform.position = playerSpawnPosition.position;
         GameObject.FindGameObjectWithTag("Librarian").transform.position = librarienSpawnPosition.position;
 

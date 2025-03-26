@@ -20,6 +20,10 @@ public class Scanner : MonoBehaviour
     public AudioSource susccessSource;
     public AudioSource failedSource;
 
+    public MeshFilter hand;
+    public Mesh handScan;
+    public Mesh handNormal;
+
     public void OnEnable()
     {
         librarianAngerButton.action.Enable();
@@ -50,12 +54,14 @@ public class Scanner : MonoBehaviour
     {
         print("ActivateScanner");
 
+        hand.mesh = handScan;
         scanner.enabled = true;
         scannerEffect.SetActive(true);
         isScannerActive = true;
     }
     public void TurnOffScanner(InputAction.CallbackContext ctx)
     {
+        hand.mesh = handNormal;
         scanner.enabled = false;
         scannerEffect.SetActive(false);
         isScannerActive = false;
