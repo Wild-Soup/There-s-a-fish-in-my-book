@@ -20,6 +20,8 @@ public class LibrarianAI : MonoBehaviour
     public float minWalkDistance;
     public LayerMask obstacleMask;
 
+    public XRRayInteractor ray;
+
     public AudioSource huntMusic;
     public AudioSource normalMusic;
 
@@ -173,6 +175,7 @@ public class LibrarianAI : MonoBehaviour
             gameOverScreen.SetActive(true);
             other.gameObject.GetComponentInChildren<ActionBasedContinuousMoveProvider>().moveSpeed = 0;
             other.gameObject.GetComponentInChildren<ActionBasedSnapTurnProvider>().turnAmount = 0;
+            ray.maxRaycastDistance = 50;
         }
     }
 }
