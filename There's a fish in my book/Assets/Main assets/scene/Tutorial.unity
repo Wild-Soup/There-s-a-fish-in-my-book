@@ -703,7 +703,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: aaab6766d8bade94bb45e7967c780066, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -736,6 +736,7 @@ MonoBehaviour:
   images:
   - {fileID: 21300000, guid: 868e85c51750b344bbf2251521c59bbb, type: 3}
   - {fileID: 21300000, guid: aabdb3cd327627a4bbcf75090735059d, type: 3}
+  - {fileID: 21300000, guid: aaab6766d8bade94bb45e7967c780066, type: 3}
 --- !u!1 &1172651389
 GameObject:
   m_ObjectHideFlags: 0
@@ -1644,7 +1645,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9020367929889412042}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ccf9b021f29953340813795908ce28e1, type: 3}
   m_Name: 
@@ -1653,10 +1654,13 @@ MonoBehaviour:
   hidingObject: {fileID: 0}
   hideExit: {fileID: -8546703501185263862, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
+  cont: {fileID: 0}
+  a: {fileID: 0}
   playerSpeed: 0
   idk: {fileID: 5940725426653648197}
   enteringHideout: 0
   gameManager: {fileID: 0}
+  walkSound: {fileID: 0}
 --- !u!114 &3521980360942839445
 MonoBehaviour:
   m_ObjectHideFlags: 0
