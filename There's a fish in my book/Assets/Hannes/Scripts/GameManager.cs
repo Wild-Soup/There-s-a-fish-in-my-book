@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         else if (instance != this)
             Destroy(this);
 
-        //DontDestroyOnLoad(instance.gameObject);
+        DontDestroyOnLoad(instance.gameObject);
 
         StartDay();
     }
@@ -293,6 +293,12 @@ public class GameManager : MonoBehaviour
 
         nrIncorrectBooks++;
         return false;
+    }
+
+    public void ResetScene()
+    {
+        day = 1;
+        MenuScripts.StartMainScene("Main Prototype Scene");
     }
 
     public void ChangeTime(float amount)
