@@ -16,9 +16,11 @@ public class lEVERPULL : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.transform.rotation.z <= 70 )
+        Debug.Log(transform.rotation.z);
+        if (gameObject.transform.rotation.z <= -0.6)
         {
             machine.StartCoroutine(machine.SpinMachine());
+            
         }
     }
 }

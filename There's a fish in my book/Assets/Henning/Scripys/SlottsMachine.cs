@@ -6,7 +6,7 @@ using TMPro;
 
 public class SlottsMachine : MonoBehaviour
 {
-    public int[] imageValues;
+    public float[] imageValues;
 
 
     public Image[] display = new Image[6];
@@ -15,17 +15,31 @@ public class SlottsMachine : MonoBehaviour
     public float respinDelay;
     public int amountOfAttempts = 5;
     private bool[] notSPin = new bool[6];
+    private float timeBet =3;
+    public TextMeshProUGUI Bet;
+    bool slottmachineactive = false;
+
+    public AudioSource Spinsound;
+    public AudioSource Winsound;
+    public AudioSource LoseSound;
+    public AudioSource AnyWinSound;
+    
+    
+    
 
     private int[] cyclesValues = new int[6];
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
     void Update()
     {
        
+        
+
     }
     public void offEnable()
     {
@@ -41,8 +55,14 @@ public class SlottsMachine : MonoBehaviour
     }
     public IEnumerator SpinMachine()
     {
-        notSPin = new bool[6] { false, false, false, false, false, false };
-        for (int r = 0; r < amountOfAttempts; r++)
+        if (GameManager.instance.time - timeBet <= 0 && !slottmachineactive) 
+        {
+                GameManager.instance.ChangeTime(-timeBet);
+            slottmachineactive = true;
+            Spinsound.Play();
+            notSPin = new bool[6] { false, false, false, false, false, false };
+            
+            for (int r = 0; r < amountOfAttempts; r++)
         {
             for (int i = 0; i < cyclesValues.Length; i++)
             {
@@ -74,8 +94,9 @@ public class SlottsMachine : MonoBehaviour
 
             yield return new WaitForSeconds(respinDelay);
         }
+            Spinsound.Stop();
 
-        int win = 0;
+        float win = 0;
         for (int i = 0; i < notSPin.Length; i++)
         {
             if (win == i && notSPin[i])
@@ -84,9 +105,47 @@ public class SlottsMachine : MonoBehaviour
                 break;
         }
 
+        if (win < 3)
+            {
+                win = 0;
+            }
+
         win *= imageValues[images.FindIndex(x => x == display[0].sprite)];
 
+            if (timeBet <= win && slottmachineactive)
+            {
+                Winsound.Play();
+
+                Invoke("WinSound",2f);
+            }
+            else if (win < timeBet)
+            {
+                AnyWinSound.Play();
+            }
+            else if(win <=0)
+            {
+                LoseSound.Play();
+            }
+            GameManager.instance.ChangeTime(win * timeBet);
+
+
+            slottmachineactive = false;
+
+
         Debug.Log(win);
+
+       }
+    }
+    public void Changebetsize(int amount)
+    {
+        timeBet += amount;
+        Bet.text = timeBet.ToString();
+
+    }
+
+    public void WinSound()
+    {
+        AnyWinSound.Play();
     }
 }
 
@@ -140,5 +199,7 @@ public struct DoubleList
             return true;
 
         return false;
+
+       
     }
 }
