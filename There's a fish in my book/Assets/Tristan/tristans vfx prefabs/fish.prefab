@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 1215336014235080773}
   - component: {fileID: 2227810047622003113}
   - component: {fileID: 3333770516271903138}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: polySurface1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -835,7 +835,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5786782669452702659}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: fish
   m_TagString: nonRemove
   m_Icon: {fileID: 0}
@@ -883,7 +883,7 @@ GameObject:
   - component: {fileID: 5209141154580143250}
   - component: {fileID: 3432095645967452960}
   - component: {fileID: 5326165615093196875}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: polySurface1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1749,7 +1749,7 @@ GameObject:
   - component: {fileID: 2132334068217949034}
   - component: {fileID: 1307902070545606272}
   - component: {fileID: 5403372498016797670}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: polySurface1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2615,7 +2615,7 @@ GameObject:
   - component: {fileID: 5306891580715259822}
   - component: {fileID: 4390045214775677958}
   - component: {fileID: 7041152611903450945}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: polySurface1 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3481,7 +3481,7 @@ GameObject:
   - component: {fileID: 6619943897000874948}
   - component: {fileID: 5106904460525875735}
   - component: {fileID: 3669470465263106264}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: polySurface1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
