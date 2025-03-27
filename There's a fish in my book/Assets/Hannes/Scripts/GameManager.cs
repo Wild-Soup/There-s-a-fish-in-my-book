@@ -257,7 +257,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        StartDay();
+        ResetScene();
         yield return new WaitForSeconds(1f);
 
         time1 = 1;
@@ -299,6 +299,7 @@ public class GameManager : MonoBehaviour
     {
         day = 1;
         MenuScripts.StartMainScene("Main Prototype Scene");
+        StartDay();
     }
 
     public void ChangeTime(float amount)
