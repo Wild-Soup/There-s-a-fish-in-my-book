@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7141442921259259464}
   - component: {fileID: 6306374206832720993}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: confetti
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 7222892719069880747}
   - component: {fileID: 496839020672564999}
   - component: {fileID: 8896569721106740986}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5029,7 +5029,7 @@ GameObject:
   - component: {fileID: 2707560806424011353}
   - component: {fileID: 7498549565537640988}
   - component: {fileID: 7829915466284825543}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9921,7 +9921,7 @@ GameObject:
   - component: {fileID: 3136235229995373867}
   - component: {fileID: 4325651701419859424}
   - component: {fileID: 5154325417190316990}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14810,7 +14810,7 @@ GameObject:
   - component: {fileID: 975757777837671978}
   - component: {fileID: 7595976647105107318}
   - component: {fileID: 3835757110585208799}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

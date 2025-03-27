@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1901180027566734432}
   - component: {fileID: 7321200384021104624}
   - component: {fileID: 3687228366032133392}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: blade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 4438326842631675140}
   - component: {fileID: 2737965350558368076}
   - component: {fileID: 2516586379363090654}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: laser sword non copyright
   m_TagString: nonRemove
   m_Icon: {fileID: 0}
@@ -848,7 +848,7 @@ GameObject:
   - component: {fileID: 7089760145779477579}
   - component: {fileID: 2224453935317277507}
   - component: {fileID: 8415680156526772293}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
