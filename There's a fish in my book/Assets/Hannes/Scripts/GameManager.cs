@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
+using static MenuScripts;
 
 public class GameManager : MonoBehaviour
 {
@@ -257,7 +258,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        ResetScene();
+        ResetScene(day + 1);
         yield return new WaitForSeconds(1f);
 
         time1 = 1;
@@ -295,9 +296,9 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    public void ResetScene()
+    public void ResetScene(int dat)
     {
-        day = 1;
+        day = dat;
         MenuScripts.StartMainScene("Main Prototype Scene");
         StartDay();
     }
