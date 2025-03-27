@@ -15,11 +15,9 @@ public class VFXManager : MonoBehaviour
             Debug.Log("dunnno");
             spawnedObject = Instantiate(VFX, parent);
 
-            Transform lib = GameObject.FindAnyObjectByType<LibrarianAI>().transform;
+            float distance = Vector3.Distance(transform.position, GameManager.librarian.transform.position);
 
-            float distance = Vector3.Distance(transform.position, lib.position);
-
-            lib.GetComponent<LibrarianAI>().IncreaseAnger(50f);
+            GameManager.librarian.GetComponent<LibrarianAI>().IncreaseAnger(50f);
 
             if (spawnedObject.CompareTag("nonRemove"))
                 hasSpawned = true;

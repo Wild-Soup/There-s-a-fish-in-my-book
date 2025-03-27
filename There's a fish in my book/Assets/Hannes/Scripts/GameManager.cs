@@ -36,7 +36,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Color[] colors;
     [SerializeField] private GameObject[] possibleEvents;
 
-    [SerializeField]private GameObject gameOverPanel = null;
+    [SerializeField] private GameObject gameOverPanel = null;
+
+    [SerializeField] public static LibrarianAI librarian { get; private set; }
 
 
     // Start is called before the first frame update
@@ -79,6 +81,9 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void StartDay()
     {
+        librarian = GameObject.FindGameObjectWithTag("Librarian").GetComponent<LibrarianAI>();
+
+
         time = 0f;
 
 
@@ -86,8 +91,8 @@ public class GameManager : MonoBehaviour
         nrIncorrectBooks = 0;
 
         GameObject.FindGameObjectWithTag("Player").transform.position = playerSpawnPosition.position;
-        GameObject.FindGameObjectWithTag("Librarian").transform.position = librarienSpawnPosition.position;
-        GameObject.FindGameObjectWithTag("Librarian").GetComponent<LibrarianAI>().ResetAnger();
+        librarian.transform.position = librarienSpawnPosition.position;
+        librarian.ResetAnger();
 
         // destroys all books if they already exist
         for (int i = 0; i < generatedBooks.Length; i++)
