@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject gameOverPanel = null;
 
-    [SerializeField] public static LibrarianAI librarian { get; private set; }
+    public static LibrarianAI librarian { get; private set; }
 
 
     // Start is called before the first frame update
