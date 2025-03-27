@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
+using static MenuScripts;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject bookPrefab;
     // time and game progression
     [SerializeField] private int day = 1;
-    [SerializeField] private float time = 0;
+    public float time { get; private set; }
     [SerializeField] private Day[] days;
     // amount of books the game has generate
     [SerializeField] private Book[] generatedBooks;
@@ -35,7 +36,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Color[] colors;
     [SerializeField] private GameObject[] possibleEvents;
 
-    [SerializeField]private GameObject gameOverPanel = null;
+    [SerializeField] private GameObject gameOverPanel = null;
+
+    [SerializeField] public static LibrarianAI librarian { get; private set; }
 
 
     // Start is called before the first frame update
@@ -47,7 +50,7 @@ public class GameManager : MonoBehaviour
         else if (instance != this)
             Destroy(this);
 
-        //DontDestroyOnLoad(instance.gameObject);
+        DontDestroyOnLoad(instance.gameObject);
 
         StartDay();
     }
@@ -78,13 +81,18 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void StartDay()
     {
+        librarian = GameObject.FindGameObjectWithTag("Librarian").GetComponent<LibrarianAI>();
+
+
         time = 0f;
+
 
         nrCorrectBooks = 0;
         nrIncorrectBooks = 0;
 
         GameObject.FindGameObjectWithTag("Player").transform.position = playerSpawnPosition.position;
-        GameObject.FindGameObjectWithTag("Librarian").transform.position = librarienSpawnPosition.position;
+        librarian.transform.position = librarienSpawnPosition.position;
+        librarian.ResetAnger();
 
         // destroys all books if they already exist
         for (int i = 0; i < generatedBooks.Length; i++)
@@ -255,7 +263,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        StartDay();
+        ResetScene(day + 1);
         yield return new WaitForSeconds(1f);
 
         time1 = 1;
@@ -292,6 +300,19 @@ public class GameManager : MonoBehaviour
         nrIncorrectBooks++;
         return false;
     }
+
+    public void ResetScene(int dat)
+    {
+        day = dat;
+        MenuScripts.StartMainScene("Main Prototype Scene");
+        StartDay();
+    }
+
+    public void ChangeTime(float amount)
+    {
+        time = Mathf.Min(time - amount, 360f);
+    }
+
     [System.Serializable]
     public struct Day
     {
