@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 88471000}
   - component: {fileID: 88470999}
   - component: {fileID: 88470998}
+  - component: {fileID: 88471001}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -205,8 +206,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1248324491}
-        m_TargetAssemblyTypeName: MenuScripts, Assembly-CSharp
+      - m_Target: {fileID: 88471001}
+        m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -255,6 +256,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 88470996}
   m_CullTransparentMesh: 1
+--- !u!114 &88471001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88470996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 874fb0336ff70a04c90df7b2cfbdc390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &744326149
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,6 +698,7 @@ GameObject:
   - component: {fileID: 1782852609}
   - component: {fileID: 1782852608}
   - component: {fileID: 1782852607}
+  - component: {fileID: 1782852610}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -756,9 +770,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1248324491}
-        m_TargetAssemblyTypeName: MenuScripts, Assembly-CSharp
-        m_MethodName: StartMainScene
+      - m_Target: {fileID: 1782852610}
+        m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
+        m_MethodName: ChangeScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -806,6 +820,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1782852605}
   m_CullTransparentMesh: 1
+--- !u!114 &1782852610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782852605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 874fb0336ff70a04c90df7b2cfbdc390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1811079958
 GameObject:
   m_ObjectHideFlags: 0
@@ -1640,10 +1666,13 @@ MonoBehaviour:
   hidingObject: {fileID: 0}
   hideExit: {fileID: -8546703501185263862, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
+  cont: {fileID: 0}
+  a: {fileID: 0}
   playerSpeed: 0
   idk: {fileID: 5940725426566277867}
   enteringHideout: 0
   gameManager: {fileID: 0}
+  walkSound: {fileID: 0}
 --- !u!114 &3521980360720718139
 MonoBehaviour:
   m_ObjectHideFlags: 0
