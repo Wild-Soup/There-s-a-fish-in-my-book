@@ -13,6 +13,8 @@ public class Scaling : MonoBehaviour
 
     private void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
+
         float height = 1.7f;
         slider.GetComponent<Slider>().value = height;
         GetComponentInParent<XROrigin>().CameraYOffset = height-0.15f;

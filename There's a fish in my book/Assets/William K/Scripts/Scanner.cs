@@ -26,12 +26,12 @@ public class Scanner : MonoBehaviour
 
     public void OnEnable()
     {
-        librarianAngerButton.action.Enable();
+        //librarianAngerButton.action.Enable();
         scannerButton.action.Enable();
 
         scannerButton.action.performed += ActivateScanner;
         scannerButton.action.canceled += TurnOffScanner;
-        librarianAngerButton.action.performed += OpenAngerMenu;
+        //librarianAngerButton.action.performed += OpenAngerMenu;
     }
 
     public void OpenAngerMenu(InputAction.CallbackContext ctx)
