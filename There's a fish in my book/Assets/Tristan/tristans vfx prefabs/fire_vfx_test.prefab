@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7038139012539671008}
   - component: {fileID: 4367081184901658842}
   - component: {fileID: 2992077676164496378}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4840,7 +4840,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1000307172666163819}
   - component: {fileID: 7029252440564249493}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: fire_vfx_test
   m_TagString: Untagged
   m_Icon: {fileID: 0}

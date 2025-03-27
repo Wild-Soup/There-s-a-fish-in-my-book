@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5474575999925255043}
   - component: {fileID: 5353705445546976897}
   - component: {fileID: 6221364521702679355}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: flashBang_panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1749584643720005860}
   - component: {fileID: 1961747028614208332}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: flashBang_test_vfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5804329626274101659}
   - component: {fileID: 7811187041631403007}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: flashBang_Sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 239104233767150013}
   - component: {fileID: 113406839346938857}
   - component: {fileID: 7946150822567003182}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: flashBang_canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

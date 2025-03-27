@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1669054496637850307}
   - component: {fileID: 2706992734066272144}
   - component: {fileID: 8757064442719570511}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SubEmitter0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4908,7 +4908,7 @@ GameObject:
   - component: {fileID: 4799787509734129453}
   - component: {fileID: 471897778262064374}
   - component: {fileID: 6020672751151940348}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9805,7 +9805,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1216511630357831897}
   - component: {fileID: 487585043555714333}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: gun_effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

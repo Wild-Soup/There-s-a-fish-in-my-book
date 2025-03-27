@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1049704647097241923}
   - component: {fileID: 8060730035656947269}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: firework_vfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 62643229061648446}
   - component: {fileID: 6008740848170583483}
   - component: {fileID: 5643296976883032359}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4990,7 +4990,7 @@ GameObject:
   - component: {fileID: 8260395111792900604}
   - component: {fileID: 1313501306591539937}
   - component: {fileID: 4876318653379985002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SubEmitter0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9879,7 +9879,7 @@ GameObject:
   - component: {fileID: 470143753228260074}
   - component: {fileID: 4913261588377288198}
   - component: {fileID: 4266099578615718456}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SubEmitter0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14768,7 +14768,7 @@ GameObject:
   - component: {fileID: 1569393070387392051}
   - component: {fileID: 8442319310103157692}
   - component: {fileID: 5667075463348524810}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SubEmitter0 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19657,7 +19657,7 @@ GameObject:
   - component: {fileID: 621973281171953385}
   - component: {fileID: 8012683422838069362}
   - component: {fileID: 4522507798178110286}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SubEmitter0 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
