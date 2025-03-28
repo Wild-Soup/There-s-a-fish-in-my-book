@@ -83,9 +83,7 @@ public class GameManager : MonoBehaviour
     {
         librarian = GameObject.FindGameObjectWithTag("Librarian").GetComponent<LibrarianAI>();
 
-
         time = 0f;
-
 
         nrCorrectBooks = 0;
         nrIncorrectBooks = 0;
