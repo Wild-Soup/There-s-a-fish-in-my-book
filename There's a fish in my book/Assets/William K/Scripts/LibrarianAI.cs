@@ -28,8 +28,6 @@ public class LibrarianAI : MonoBehaviour
     public float walkRange;
     public float maxViewRange;
 
-    public GameObject gameOverScreen;
-
     private NavMeshAgent agent;
     public bool isInHunt;
     public bool sawHiding;
@@ -172,7 +170,7 @@ public class LibrarianAI : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gameOverScreen.SetActive(true);
+            GameManager.instance.gameOverPanel.SetActive(true);
             other.gameObject.GetComponentInChildren<ActionBasedContinuousMoveProvider>().moveSpeed = 0;
             other.gameObject.GetComponentInChildren<ActionBasedSnapTurnProvider>().turnAmount = 0;
             ray.maxRaycastDistance = 50;

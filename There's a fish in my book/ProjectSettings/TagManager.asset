@@ -12,6 +12,7 @@ TagManager:
   - nonRemove
   - minute
   - hour
+  - GameOver
   layers:
   - Default
   - TransparentFX

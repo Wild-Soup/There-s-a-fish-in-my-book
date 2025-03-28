@@ -36,10 +36,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Color[] colors;
     [SerializeField] private GameObject[] possibleEvents;
 
-    [SerializeField] private GameObject gameOverPanel = null;
+    [SerializeField] public GameObject gameOverPanel = null;
 
     public static LibrarianAI librarian { get; private set; }
 
+    bool a;
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +49,7 @@ public class GameManager : MonoBehaviour
         if (instance == null)
             instance = this;
         else if (instance != this)
-            Destroy(this);
+            Destroy(this.gameObject);
 
         DontDestroyOnLoad(instance.gameObject);
 
@@ -57,15 +58,18 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time += Mathf.Clamp(Time.deltaTime, 0f, 360f);
-
-        hourhand.localRotation = Quaternion.Euler(0f, ((240f / 360f) * time) - 90f, 0f);
-        minutehand.localRotation = Quaternion.Euler(0f, (360f * (time / 60f)), 0f);
-
-        if (time >= 360f)
+        if (hourhand != null)
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<ActionBasedContinuousMoveProvider>().moveSpeed = 0;
-            gameOverPanel.SetActive(true);
+            time += Mathf.Clamp(Time.deltaTime, 0f, 360f);
+
+            hourhand.localRotation = Quaternion.Euler(0f, ((240f / 360f) * time) - 90f, 0f);
+            minutehand.localRotation = Quaternion.Euler(0f, (360f * (time / 60f)), 0f);
+
+            if (time >= 360f)
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<ActionBasedContinuousMoveProvider>().moveSpeed = 0;
+                gameOverPanel.SetActive(true);
+            }
         }
     }
 
@@ -81,10 +85,16 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void StartDay()
     {
-        hourhand = GameObject.FindGameObjectWithTag("hour").transform;
-        minutehand = GameObject.FindGameObjectWithTag("minute").transform;
+        correctBooks.Clear();
+
+        gameOverPanel.SetActive(false);
+
+        hourhand = GameObject.FindGameObjectWithTag("hour").GetComponent<Transform>();
+        minutehand = GameObject.FindGameObjectWithTag("minute").GetComponent<Transform>();
 
         librarian = GameObject.FindGameObjectWithTag("Librarian").GetComponent<LibrarianAI>();
+
+        gameOverPanel.GetComponent<Canvas>().worldCamera = Camera.main;
 
         time = 0f;
 
@@ -126,6 +136,7 @@ public class GameManager : MonoBehaviour
             // removes the already used position from the list
             positions.RemoveAt(index);
         }
+        a = true;
     }
     /// <summary>
     /// creates books for the day
@@ -240,6 +251,7 @@ public class GameManager : MonoBehaviour
     }
     public bool EndDay(bool overrride = false)
     {
+        a = false;
         if (nrCorrectBooks == correctBooks.Count || overrride)
         {
             StartCoroutine(FadeinFadeOut(1f));
@@ -301,11 +313,11 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    public static void ResetScene(int dat)
+    public void ResetScene(int dat)
     {
-        GameManager.instance.day = dat;
+        day = dat;
         MenuScripts.StartMainScene("Main Prototype Scene");
-        GameManager.instance.StartDay();
+        Invoke("StartDay", 1f);
     }
 
     public void ChangeTime(float amount)
