@@ -242,7 +242,6 @@ public class GameManager : MonoBehaviour
     {
         if (nrCorrectBooks == correctBooks.Count || overrride)
         {
-            day++;
             StartCoroutine(FadeinFadeOut(1f));
             return true;
         }
