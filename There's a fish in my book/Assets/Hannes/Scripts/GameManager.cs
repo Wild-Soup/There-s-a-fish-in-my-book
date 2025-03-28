@@ -81,6 +81,9 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void StartDay()
     {
+        hourhand = GameObject.FindGameObjectWithTag("hour").transform;
+        minutehand = GameObject.FindGameObjectWithTag("minute").transform;
+
         librarian = GameObject.FindGameObjectWithTag("Librarian").GetComponent<LibrarianAI>();
 
         time = 0f;

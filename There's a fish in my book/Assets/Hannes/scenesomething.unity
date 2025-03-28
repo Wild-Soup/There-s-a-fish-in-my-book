@@ -4194,7 +4194,6 @@ MonoBehaviour:
   bookPrefab: {fileID: 258472090828071502, guid: 75c9b6bcc65f3114496015352037bbc1,
     type: 3}
   day: 1
-  time: 60
   days: []
   generatedBooks: []
   correctBooks: []
@@ -4518,6 +4517,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2855463315344139155, guid: 05c10ac9bda2c0346b22acad4680f213,
+        type: 3}
+      propertyPath: m_TagString
+      value: minute
+      objectReference: {fileID: 0}
     - target: {fileID: 6250614683291962466, guid: 05c10ac9bda2c0346b22acad4680f213,
         type: 3}
       propertyPath: m_Name
@@ -4572,6 +4576,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7451690043653147554, guid: 05c10ac9bda2c0346b22acad4680f213,
+        type: 3}
+      propertyPath: m_TagString
+      value: hour
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
