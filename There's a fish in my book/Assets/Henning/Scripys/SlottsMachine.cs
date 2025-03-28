@@ -55,7 +55,7 @@ public class SlottsMachine : MonoBehaviour
     }
     public IEnumerator SpinMachine()
     {
-        if (GameManager.instance.time - timeBet <= 0 && !slottmachineactive) 
+        if ((360f - GameManager.instance.time) - timeBet <= 0 && !slottmachineactive) 
         {
                 GameManager.instance.ChangeTime(-timeBet);
             slottmachineactive = true;
