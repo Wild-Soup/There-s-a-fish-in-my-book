@@ -301,11 +301,11 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    public void ResetScene(int dat)
+    public static void ResetScene(int dat)
     {
-        day = dat;
+        GameManager.instance.day = dat;
         MenuScripts.StartMainScene("Main Prototype Scene");
-        StartDay();
+        GameManager.instance.StartDay();
     }
 
     public void ChangeTime(float amount)
