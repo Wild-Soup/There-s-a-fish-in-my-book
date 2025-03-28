@@ -81,11 +81,12 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void StartDay()
     {
+        hourhand = GameObject.FindGameObjectWithTag("hour").transform;
+        minutehand = GameObject.FindGameObjectWithTag("minute").transform;
+
         librarian = GameObject.FindGameObjectWithTag("Librarian").GetComponent<LibrarianAI>();
 
-
         time = 0f;
-
 
         nrCorrectBooks = 0;
         nrIncorrectBooks = 0;
@@ -241,7 +242,6 @@ public class GameManager : MonoBehaviour
     {
         if (nrCorrectBooks == correctBooks.Count || overrride)
         {
-            day++;
             StartCoroutine(FadeinFadeOut(1f));
             return true;
         }
@@ -301,11 +301,11 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    public void ResetScene(int dat)
+    public static void ResetScene(int dat)
     {
-        day = dat;
+        GameManager.instance.day = dat;
         MenuScripts.StartMainScene("Main Prototype Scene");
-        StartDay();
+        GameManager.instance.StartDay();
     }
 
     public void ChangeTime(float amount)
