@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 241275577586556029}
   - component: {fileID: 5112549890489999221}
   - component: {fileID: 4371146719882075009}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: burnmark
   m_TagString: Untagged
   m_Icon: {fileID: 0}

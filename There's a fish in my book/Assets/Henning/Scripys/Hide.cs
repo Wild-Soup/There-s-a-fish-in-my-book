@@ -27,11 +27,14 @@ public class Hide : MonoBehaviour
 
     public void hide(Transform hidePos)
     {
-        hideVignette.GetComponent<Animator>().SetTrigger("hide");
-        this.hidePos = hidePos;
-        player.GetComponent<PlayerManager>().enteringHideout = true;
-        oldPos = player.transform.position;
-        StartCoroutine(HideDelay());
+        if (!player.GetComponent<PlayerManager>().isHiding && !player.GetComponent<PlayerManager>().enteringHideout)
+        {
+            hideVignette.GetComponent<Animator>().SetTrigger("hide");
+            this.hidePos = hidePos;
+            player.GetComponent<PlayerManager>().enteringHideout = true;
+            oldPos = player.transform.position;
+            StartCoroutine(HideDelay());
+        }
     }
     
     public IEnumerator HideDelay()
