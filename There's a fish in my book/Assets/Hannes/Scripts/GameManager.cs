@@ -148,7 +148,7 @@ public class GameManager : MonoBehaviour
         // gets the amount of generated books that will be correct during this day
         int mainBooksCount = (2 * (day - 1)) + 3;
         // gets the amount of generated books that will be traps during this day
-        int trapBooksCount = 2 * (day - 1);
+        int trapBooksCount = 2 * (day - 1) + 1;
         // gets the amount of books that will be cloned during this day
         int cloneBooksCount = day;
 
@@ -246,6 +246,8 @@ public class GameManager : MonoBehaviour
             newAuthor += letter;
         Book newBook = Instantiate(bookPrefab).GetComponent<Book>();
         newBook.Initialize(newTitle, newAuthor, original.genre, original.color.color);
+        if (Random.Range(1, 100) < 70)
+            newBook.GetComponent<VFXManager>().SetVFX(possibleEvents[Random.Range(0, possibleEvents.Length)]);
         // returns the new cloned book
         return newBook;
     }
