@@ -734,6 +734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   images:
+  - {fileID: 21300000, guid: 1ab1bc174ea8c0343a4cc182c33dbfb2, type: 3}
   - {fileID: 21300000, guid: 6d5a663616a4d974ea40012b7cdd8dcb, type: 3}
   - {fileID: 21300000, guid: aaab6766d8bade94bb45e7967c780066, type: 3}
   - {fileID: 21300000, guid: da6c459ff89fd704396564edc032ad35, type: 3}
